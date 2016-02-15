@@ -50,6 +50,13 @@ Route::get('import', array(
 	'as' 	=> 'import-get',
 	'uses'	=> 'importController@importGet'
 	));
+// Sales Rout::::::
+Route::get('sales', array(
+	'as' 	=> 'sales-get',
+	'uses'	=> 'salesController@salesGet'
+	));
+
+//Lock Screen Rout:::
 
 Route::get('lock',array(
 	'as'	=> 'lock-get',
