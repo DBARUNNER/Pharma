@@ -12,7 +12,7 @@
 		*/ 
 
 		public function importGet() {
-			return View::make('index');
+			return View::make('import');
 		}
 
 

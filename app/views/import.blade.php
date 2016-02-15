@@ -22,14 +22,14 @@ Sistan Pharma
                   <h5 class="centered">Marcel Newman</h5>
                     
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a href="index.html">
                           <i class="fa fa-dashboard"></i>
                           <span>Home</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a class="active" href="{{ URL::route('import-get')}}" >
                           <i class="fa fa-desktop"></i>
                           <span>Import</span>
                       </a>
