@@ -3,7 +3,6 @@
 
 
 @section('import-style')
-
 <style>
 /*style for import page*/
 
@@ -12,7 +11,7 @@
 .board{
     width: 100%;
 margin: 0px auto;
-height: 500px;
+min-height: 800px;
 background: #fff;
 /*box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
 }
@@ -40,12 +39,13 @@ p.narrow{
     height: 2px;
     background: #ddd;
     position: absolute;
-    width: 80%;
+    width: 61%;
     margin: 0 auto;
     left: 0;
     right: 0;
     top: 50%;
     z-index: 1;
+    margin-left: 83px; 
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -57,9 +57,9 @@ p.narrow{
 }
 
 span.round-tabs{
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
+    width: 100px;
+    height: 100px;
+    line-height: 17px;
     display: inline-block;
     border-radius: 100px;
     background: white;
@@ -71,53 +71,58 @@ span.round-tabs{
 }
 
 span.round-tabs.one{
-    color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
+    color: #506a85;
+    border: 2px solid #d2dae3;
 }
 
 li.active span.round-tabs.one{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: rgb(34, 194, 34);
+    background: #1abb9c !important;
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 span.round-tabs.two{
-    color: #febe29;border: 2px solid #febe29;
+    color: #506a85;
+    border: 2px solid #d2dae3;
 }
 
 li.active span.round-tabs.two{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #febe29;
+    background: #1abb9c !important;
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 span.round-tabs.three{
-    color: #3e5e9a;border: 2px solid #3e5e9a;
+    color: #506a85;
+    border: 2px solid #d2dae3;
 }
 
 li.active span.round-tabs.three{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #3e5e9a;
+    background: #1abb9c !important;
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 span.round-tabs.four{
-    color: #f1685e;border: 2px solid #f1685e;
+    color: #506a85;
+    border: 2px solid #d2dae3;
 }
 
 li.active span.round-tabs.four{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #f1685e;
+    background: #1abb9c !important;
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 span.round-tabs.five{
-    color: #999;border: 2px solid #999;
+    color: #506a85;
+    border: 2px solid #999;
 }
 
 li.active span.round-tabs.five{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #999;
+    background: #1abb9c !important;
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 .nav-tabs > li.active > a span.round-tabs{
@@ -162,8 +167,8 @@ li.active:after {
     
 }
 .nav-tabs > li a{
-   width: 70px;
-   height: 70px;
+   width: 100px;
+   height: 100px;
    margin: 20px auto;
    border-radius: 100%;
    padding: 0;
@@ -345,43 +350,81 @@ Sistan Pharma
                     <ul class="nav nav-tabs" id="myTab">
                     <div class="liner"></div>
                      <li class="active">
-                     <a href="#home" data-toggle="tab" title="welcome">
-                      <span class="round-tabs one">
-                              <i class="glyphicon glyphicon-home"></i>
+                     <a href="#home" data-toggle="tab" title="Suplier List">
+                      <span class="round-tabs one" id="suplier-tab">
+                              <i class="glyphicon glyphicon-home import-icon" style="margin-bottom: 14px;"></i>
+                              <span>Suplier List</span>
                       </span> 
                   </a></li>
 
-                  <li><a href="#profile" data-toggle="tab" title="profile">
-                     <span class="round-tabs two">
-                         <i class="glyphicon glyphicon-user"></i>
+                  <li><a href="#profile" data-toggle="tab" title="Import form Suplier" >
+                     <span class="round-tabs two" id="suplier-tab">
+                         <i class="glyphicon glyphicon-user import-icon" ></i>
+                         <span style="font-size: 12px;">Import from Suplier</span>
                      </span> 
            </a>
                  </li>
-                 <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
-                     <span class="round-tabs three">
-                          <i class="glyphicon glyphicon-gift"></i>
+                 <li><a href="#messages" data-toggle="tab" title="Add Employee">
+                     <span class="round-tabs three" id="suplier-tab">
+                          <i class="glyphicon glyphicon-gift import-icon"></i>
+                          <span>Add Employee</span>
                      </span> </a>
                      </li>
 
-                     <li><a href="#settings" data-toggle="tab" title="blah blah">
-                         <span class="round-tabs four">
-                              <i class="glyphicon glyphicon-comment"></i>
+                     <li><a href="#settings" data-toggle="tab" title="Import History">
+                         <span class="round-tabs four" id="suplier-tab">
+                              <i class="glyphicon glyphicon-comment import-icon"></i>
+                              <span>Import History</span>
                          </span> 
-                     </a></li>
 
-                     <li><a href="#doner" data-toggle="tab" title="completed">
-                         <span class="round-tabs five">
-                              <i class="glyphicon glyphicon-ok"></i>
-                         </span> </a>
-                     </li>
+                     </a></li>
                      
                      </ul></div>
 
                      <div class="tab-content">
-                      <div class="tab-pane fade in active" id="home">
-
-                          <h3 class="head text-center">First Tab</h3>
-                    
+                      <div class="tab-pane fade in active" id="home">        
+                          <div class="container">
+                               <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Users</h3>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="#" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="First Name" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Last Name" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Username" disabled></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+                          </div>
                       </div>
 
                       <div class="tab-pane fade" id="profile">
