@@ -231,6 +231,7 @@
     <script type="text/javascript" src="{{ URL::asset('assets/js/gritter/js/jquery.gritter.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets/js/gritter-conf.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets/js/custom.js') }}"></script>
+    @yield('script')  
   
 
   </body>

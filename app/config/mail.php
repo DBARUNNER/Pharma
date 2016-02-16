@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => "", 'name' => null),
+	'from' => array('address' => "sistan.pharam@gmail.com", 'name' => "Sistan Pharma"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'encryption' => 'tls',
+	'encryption' => 'ssl',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'sistan.pharam@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => 'sistan.pharma@1234',
 
 	/*
 	|--------------------------------------------------------------------------

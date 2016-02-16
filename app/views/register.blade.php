@@ -35,7 +35,14 @@
 	  	<div class="container">
 	  	
 		      <form class="form-login" method="post" action="{{ URL::route('create-account-post') }}">
-		        <h2 class="form-login-heading">Register new user</h2>
+		      	@if(Session::has('global'))
+		      	<h3 class="form-login-heading" style="color:red;">
+		      	{{ Session::get('global') }}
+		        </h3>
+		        @else 
+		        <h2 class="form-login-heading">
+		        Register new user</h2>
+		        @endif
 		        <div class="login-wrap">
 		            <input type="text" class="form-control" placeholder="Email" name="email" autofocus>
 		            @if($errors->has('email'))

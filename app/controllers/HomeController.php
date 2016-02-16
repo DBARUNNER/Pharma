@@ -20,4 +20,10 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function sendMail() {
+		Mail::send('emails.auth.reminder',array('name' => 'jamal'), function($message) {
+			$message->to('jamalyousufi2013@gmail.com','jamal great')->subject('to mail');
+		});
+	}
+
 }

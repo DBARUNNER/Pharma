@@ -257,7 +257,7 @@ ul.top-menu > li > .logout {
     height:17px;
     width:17px;
     display:inline-block;
-    background: url("../img/nav-expand.png") no-repeat top;
+    background: url("../../public/img/nav-expand.png") no-repeat top;
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -2291,12 +2291,28 @@ ul#nav-accordion i {
     margin-bottom: 17px; 
     top: 7px;
 }
+#suplier-tab > span {
+    display: block;
+    font-size: 12px; 
+}
 
+.board > div.board-inner{
+    background: #fafafa url('../img/geometry2.png');
+    background-size: 30%;
+    border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 500px) {
+        #suplier-tab span {
+            display: none;
+        }
+    }
+}
 
 /*Search Table Style */
 
 .filterable {
-    margin-top: 15px;
+    margin-top: 0px;
 }
 .filterable .panel-heading .pull-right {
     margin-top: -20px;
@@ -2319,3 +2335,15 @@ ul#nav-accordion i {
     color: #333;
 }
 
+/*Import tabl style*/
+
+#myTab{
+    left:   10%; 
+    border-bottom:  none;
+}
+
+/*import tab style */
+
+a.import {
+    cursor: pointer;
+}
