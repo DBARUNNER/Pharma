@@ -2335,12 +2335,13 @@ ul#nav-accordion i {
     color: #333;
 }
 
-<<<<<<< HEAD
+
 /*Import tabl style*/
 
 #myTab{
     left:   10%; 
     border-bottom:  none;
+    margin-top: 0px;
 }
 
 /*import tab style */
@@ -2348,7 +2349,7 @@ ul#nav-accordion i {
 a.import {
     cursor: pointer;
 }
-=======
+
 #tab-style {
     background-color: #fff;
     margin:7px 7px 7px ;
