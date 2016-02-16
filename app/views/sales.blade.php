@@ -108,16 +108,9 @@ Sistan Pharma/Sales
 
 
 @section('content')
-    <div class="panel panel-primary">
-   <div class="panel-heading">
-      <h2 class="panel-title">
-        <i class="fa fa-cloud"> </i>
-         Sales
-      </h2>
-   </div>
-   <div class="panel-body">
-   <h3 class="active-tab"><strong>Sales Tab</strong>: <span></span></h3>
+   <h3 class="active-tab text-info"><strong> &nbsp Sales Tab</strong>: <span></span></h3>
 <hr>
+<div id="tab-style">
 <ul id="myTab" class="nav nav-tabs">
    <li class="active"><a href="#home" data-toggle="tab">
       <i class="fa fa-info-circle"></i>  Sales to customer</a></li>
@@ -134,109 +127,132 @@ Sistan Pharma/Sales
       </ul>
    </li>
 </ul>
+<!-- Tab Start -->
 <div id="myTabContent" class="tab-content">
-<!-- Customer Tab Start -->
-   <div class="tab-pane fade in active" id="home">
-    <h3 class="text-success">Customer Info</h3>
-    <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Full Name</th>
-          <th>Points</th>
-          <th>Notes</th>
-          <th>Edit</th>
-          <th>Delete</th> 
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>alex</td>
-          <td>Alex Nilson</td>
-          <td>1234</td>
-          <td class="center">power user </td>
-          <td><a class="edit" href="javascript:;">Edit </a></td>
-          <td><a class="delete" href="javascript:;">Delete </a></td>
-        </tr>
-        <tr>
-          <td>lisa</td>
-          <td>Lisa Wong </td>
-          <td>434</td>
-          <td class="center">new user</td>
-          <td><a class="edit" href="javascript:;">Edit </a></td>
-          <td><a class="delete" href="javascript:;">Delete </a></td> 
-        </tr>
-        <tr>
-          <td>nick12 </td>
-          <td>Nick Roberts</td>
-          <td>232</td> 
-          <td class="center">power user</td>
-          <td><a class="edit" href="javascript:;">Edit </a> </td>
-          <td><a class="delete" href="javascript:;">Delete </a></td> 
-        </tr>
-        <tr>
-          <td>goldweb</td>
-          <td>Sergio Jackson</td>
-          <td> 132</td> 
-          <td class="center"> elite user</td>
-          <td><a class="edit" href="javascript:;">Edit </a> </td>
-          <td><a class="delete" href="javascript:;">Delete </a></td> 
-        </tr>
-      </tbody>
-    </table>
-   </div>
-   <!-- Customer Tab End -->
+  <!-- Customer Tab Start -->
+  <div class="tab-pane fade in active" id="home">
+    <div class="panel panel-default filterable">
+      <div class="panel-heading" id ="table-panel" >
+        <h2 class=" text-info panel-title">Customer Info</h2>
+        <div class="pull-right btn-group">
+
+         <!-- Tools Button Start -->
+          <button id="btn-tools" class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i></button>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#"><i class="fa fa-print"></i> Print </a></li>
+            <li><a href="#"><i class="fa fa-file-pdf-o"></i> Save as PDF </a></li>
+            <li><a href="#"><i class="fa fa-file-excel-o"></i> Export to Excel </a>  </li>                       
+          </ul>
+          <!-- Tools Button End -->
+
+          <!-- Filter Button Start -->
+          <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+
+          <!-- Filter Button End -->
+        </div>
+      </div>
+      <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+        <thead>
+          <tr class="filters">
+            <th><input type="text" class="form-control" placeholder="Username" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Full Name" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Point" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Notes" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Sales" disabled></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>alex</td>
+            <td>Alex Nilson</td>
+            <td>1234</td>
+            <td class="center">power user </td>
+            <td><a class="edit" href="javascript:;">Edit </a> </td>
+          </tr>
+          <tr>
+            <td>lisa</td>
+            <td>Lisa Wong </td>
+            <td>434</td>
+            <td class="center">new user</td>
+            <td><a class="edit" href="javascript:;">Edit </a> </td>
+          </tr>
+          <tr>
+            <td>nick12 </td>
+            <td>Nick Roberts</td>
+            <td>232</td> 
+            <td class="center">power user</td>
+            <td><a class="edit" href="javascript:;">Edit </a> </td>
+          </tr>
+          <tr>
+            <td>goldweb</td>
+            <td>Sergio Jackson</td>
+            <td> 132</td> 
+            <td class="center"> elite user</td>
+            <td><a class="edit" href="javascript:;">Edit </a> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Customer Tab End -->
 
    <!-- Agency Tab Start -->
 
    <div class="tab-pane fade" id="agency">
-      <h3 class="text-info">Agency Info</h3>
-          <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Full Name</th>
-          <th>Points</th>
-          <th>Notes</th>
-          <th>Edit</th>
-          <th>Delete</th> 
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>alex</td>
-          <td>Alex Nilson</td>
-          <td>1234</td>
-          <td class="center">power user </td>
-          <td><a class="edit" href="javascript:;">Edit </a></td>
-          <td><a class="delete" href="javascript:;">Delete </a></td>
-        </tr>
-        <tr>
-          <td>lisa</td>
-          <td>Lisa Wong </td>
-          <td>434</td>
-          <td class="center">new user</td>
-          <td><a class="edit" href="javascript:;">Edit </a></td>
-          <td><a class="delete" href="javascript:;">Delete </a></td> 
-        </tr>
-        <tr>
-          <td>nick12 </td>
-          <td>Nick Roberts</td>
-          <td>232</td> 
-          <td class="center">power user</td>
-          <td><a class="edit" href="javascript:;">Edit </a> </td>
-          <td><a class="delete" href="javascript:;">Delete </a></td> 
-        </tr>
-        <tr>
-          <td>goldweb</td>
-          <td>Sergio Jackson</td>
-          <td> 132</td> 
-          <td class="center"> elite user</td>
-          <td><a class="edit" href="javascript:;">Edit </a> </td>
-          <td><a class="delete" href="javascript:;">Delete </a></td> 
-        </tr>
-      </tbody>
-    </table>
+          <div class="panel panel-default filterable">
+      <div class="panel-heading" id ="table-panel" >
+        <h2 class=" text-info panel-title">Customer Info</h2>
+        <div class="pull-right">
+          <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+        </div>
+      </div>
+      <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+        <thead>
+          <tr class="filters">
+            <th><input type="text" class="form-control" placeholder="Username" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Full Name" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Point" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Notes" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Edit" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>alex</td>
+            <td>Alex Nilson</td>
+            <td>1234</td>
+            <td class="center">power user </td>
+            <td><a class="edit" href="javascript:;">Edit </a></td>
+            <td><a class="delete" href="javascript:;">Delete </a></td>
+          </tr>
+          <tr>
+            <td>lisa</td>
+            <td>Lisa Wong </td>
+            <td>434</td>
+            <td class="center">new user</td>
+            <td><a class="edit" href="javascript:;">Edit </a></td>
+            <td><a class="delete" href="javascript:;">Delete </a></td> 
+          </tr>
+          <tr>
+            <td>nick12 </td>
+            <td>Nick Roberts</td>
+            <td>232</td> 
+            <td class="center">power user</td>
+            <td><a class="edit" href="javascript:;">Edit </a> </td>
+            <td><a class="delete" href="javascript:;">Delete </a></td> 
+          </tr>
+          <tr>
+            <td>goldweb</td>
+            <td>Sergio Jackson</td>
+            <td> 132</td> 
+            <td class="center"> elite user</td>
+            <td><a class="edit" href="javascript:;">Edit </a> </td>
+            <td><a class="delete" href="javascript:;">Delete </a></td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
    </div>
 
    <!-- Agency Tab End -->
@@ -349,7 +365,7 @@ Sistan Pharma/Sales
    <!-- Register Customer -->
    <div class="tab-pane fade" id="jmeter">
       <h3 class="text-info">Customer Register</h3>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" >
        <div class="form-group">
           <label for="firstname" class="col-sm-2 control-label">Name:</label>
           <div class="col-sm-10">
@@ -458,7 +474,7 @@ Sistan Pharma/Sales
    </div>
    <!-- Agency register End -->
 </div>
-   </div>
 </div>
+<!-- End Tab -->
 
 @stop
