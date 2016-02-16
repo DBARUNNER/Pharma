@@ -2269,8 +2269,8 @@ ul#nav-accordion i {
 }
 #div-nave {
     padding-top: 12px;
-    background-color: #cef3f5;
-    margin-bottom: -38px; 
+    background-color: #cef3f5; 
+    margin-bottom: 0px; 
 }
 #navigation li a {
     font-weight: bold;
@@ -2335,6 +2335,7 @@ ul#nav-accordion i {
     color: #333;
 }
 
+<<<<<<< HEAD
 /*Import tabl style*/
 
 #myTab{
@@ -2347,3 +2348,27 @@ ul#nav-accordion i {
 a.import {
     cursor: pointer;
 }
+=======
+#tab-style {
+    background-color: #fff;
+    margin:7px 7px 7px ;
+}
+
+
+/* Sales Page Style */
+
+#table-panel {
+    background-color:#fff;
+    border-top: none;
+}
+
+/* Btn Tools */
+#btn-tools {
+    background-color:#fff;
+    padding-top: 2px;
+    margin-right: 40px;
+}
+
+
+/* Sales Page Style End */
+>>>>>>> f195075986d6b286304465da8a7b81dc66e9b42e
