@@ -34,12 +34,24 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="{{URL::route('import-get') }}">
-		        <h2 class="form-login-heading">sign in now</h2>
+		      <form class="form-login" method="POST" action="{{URL::route('login-post') }}">
+		        <h2 class="form-login-heading">
+		        @if(Session::has('global'))
+		        	<span style="color:red">{{ Session::get('global') }}</span>
+		        @else
+		        Sign in now
+		        @endif
+		        </h2>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="User ID" autofocus>
+		            <input type="text" class="form-control" placeholder="Email" name="email" autofocus>
+		            @if($errors->has('email'))
+		            <span style="color:red;">{{ $errors->first('email') }}</span>
+		            @endif
 		            <br>
-		            <input type="password" class="form-control" placeholder="Password">
+		            <input name="password" type="password" class="form-control" placeholder="Password">
+		            @if($errors->has('password'))
+		            <span style="color:red;">{{ $errors->first('password') }}</span>
+		            @endif
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
@@ -63,6 +75,10 @@
 		
 		        </div>
 		
+					{{ Form::token() }}
+		      </form>	  	
+	  			
+
 		          <!-- Modal -->
 		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
 		              <div class="modal-dialog">
@@ -84,9 +100,6 @@
 		              </div>
 		          </div>
 		          <!-- modal -->
-		
-		      </form>	  	
-	  	
 	  	</div>
 	  </div>
 

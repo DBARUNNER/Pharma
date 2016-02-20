@@ -52,3 +52,56 @@ $(document).ready(function(){
         }
     });
 });
+
+
+
+// Java Script code form Import Bill form 
+
+
+function calc_total(){
+    var sum = 0;
+    $('.input-totalPrice').each(function(){
+        sum += parseFloat($(this).text());
+    });
+    $(".preview-total").text(sum);    
+}
+$(document).on('click', '.input-remove-row', function(){ 
+    var tr = $(this).closest('tr');
+    tr.fadeOut(200, function(){
+        tr.remove();
+        calc_total()
+    });
+});
+
+$(function(){
+    $('.preview-add-button').click(function(){
+        var form_data = {};
+        form_data["name"] = $('.payment-form input[name="name"]').val();
+        form_data["madeIn"] = $('.payment-form input[name="madeIn"]').val();
+        form_data["amount"] = parseFloat($('.payment-form input[name="amount"]').val()).toFixed(2);
+        form_data["status"] = $('.payment-form #status option:selected').text();
+        form_data["product_date"] = $('.payment-form input[name="product_date"]').val();
+        form_data["exp_date"] = $('.payment-form input[name="expire_date"]').val();
+        form_data["price"]  = $('.payment-form input[name="price"]').val();
+        form_data["weight"] = $('.payment-form input[name="weight"]').val();
+        form_data["label"]  = $('.payment-form input[name="label"]').val();
+        form_data["totalPrice"]=$('.payment-form input[name="TotalPrice"]').val();
+        form_data["remove-row"] = '<span class="glyphicon glyphicon-remove"></span>';
+        var row = $('<tr></tr>');
+        $.each(form_data, function( type, value ) {
+            $('<td class="input-'+type+'"></td>').html(value).appendTo(row);
+        });
+        $('.preview-table > tbody:last').append(row); 
+        calc_total();
+    });  
+});
+
+
+
+function total() {
+    var amount = document.getElementById('amount').value;
+    var price  = document.getElementById('price').value;
+    var totalPrice = amount * price; 
+    document.getElementById('totalPrice').value = totalPrice;
+}
+

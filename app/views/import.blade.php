@@ -228,14 +228,14 @@ Sistan Pharma
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td><a class="md-trigger import" data-modal="modal-4">Import</a></td>
+                        <td><a class="md-trigger import" data-toggle="modal" data-target="#myModal">Import Bill</a></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
-                        <td>somthing@gmail.ocm</td>
+                        <td><a class="md-trigger import" data-toggle="modal" data-target="#secondModel">Import Bill</a></td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -366,9 +366,149 @@ Sistan Pharma
 
 
 <!-- model code is here -->
-  
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Import Bit from Suplier</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Start of BILL form  -->
+          <div class="container-fliud">
+            <div class="row">
+        <div class="col-sm-12">
+            <legend>Name of suplier</legend>
+        </div>
+        <!-- panel preview -->
+        <div class="col-sm-4">
+            <h4>Insert your Material</h4>
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal payment-form">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Genric Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="madIn" class="col-sm-3 control-label">Made in</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="madIn" name="madeIn">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight" class="col-sm-3 control-label">Weight</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="weight" name="weight">
+                        </div>
+                          <label for="label" class="col-sm-2 control-label">Label</label>
+                      <div class="col-sm-3">
+                            <input type="text" class="form-control" id="lable" name="label">
+                        </div>
+                    
+                    </div>
+                  
+                    
+                    <div class="form-group">
+                        <label for="amount" class="col-sm-3 control-label">Quantity</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="amount" name="amount">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="col-sm-3 control-label">Price</label>
+                        <div class="col-sm-9">
+                            <input type="number" onblur="total();" class="form-control" id="price" name="price">
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: none;">
+                        <label for="Tatal Price" class="col-sm-3 control-label">Total Price</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="totalPrice" name="TotalPrice">
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                        <label for="date" class="col-sm-3 control-label">Product Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="productDate" name="product_date">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="date" class="col-sm-3 control-label">Expire Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="expireDate" name="expire_date">
+                        </div>
+                    </div>  
+                    <div class="form-group">
+                        <label for="status" class="col-sm-3 control-label">Status</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="status" name="status">
+                                <option>Paid</option>
+                                <option>Unpaid</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="col-sm-12 text-right">
+                            <button type="button" class="btn btn-default preview-add-button">
+                                <span class="glyphicon glyphicon-plus"></span> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div> <!-- / panel preview -->
+        <div class="col-sm-8">
+            <h4>Preview:</h4>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table preview-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Made In</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Product Date</th>
+                                    <th>Expire Date</th>
+                                    <th>Price</th>
+                                    <th>Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody> <!-- preview content goes here-->
+                        </table>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row text-right">
+                <div class="col-xs-12">
+                    <h4>Total: <strong><span class="preview-total"></span></strong></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <hr style="border:1px dashed #dddddd;">
+                    <button type="button" class="btn btn-primary btn-block">Submit all and finish</button>
+                </div>                
+            </div>
+        </div>
+  </div>
+</div>
+
+        <!-- End of BILL form  -->
+      </div>
+      
+    </div>
+  </div>
 
 <!-- End of model -->
+
+
+<!-- End of model -->
+
 
 @stop
 

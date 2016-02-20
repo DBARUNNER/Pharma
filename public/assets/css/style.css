@@ -2302,7 +2302,7 @@ ul#nav-accordion i {
     border-bottom: 1px solid #ddd;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
         #suplier-tab span {
             display: none;
         }
@@ -2355,6 +2355,19 @@ a.import {
     margin:7px 7px 7px ;
 }
 
+/*import model css style*/
+
+#modal-dialog {
+   width: 94%;
+margin: 30px auto;
+margin-left: 4%;
+margin-top: 1%;
+}
+
+.input-weight,.input-label {
+    display: none;
+}
+
 
 /* Sales Page Style */
 
@@ -2372,4 +2385,3 @@ a.import {
 
 
 /* Sales Page Style End */
->>>>>>> f195075986d6b286304465da8a7b81dc66e9b42e

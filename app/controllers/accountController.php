@@ -100,6 +100,39 @@ class accountController extends \BaseController {
 	}
 
 	public function loginPost() {
-	
+		$validator 	= Validator::make(Input::all(),array(
+			'email'	=> 'required|email',
+			'password'	=> 'required'
+			));
+
+		if($validator->fails()) {
+			return Redirect::route('login-get')
+					->withErrors($validator)
+					->withInput();
+		}else {
+			$auth 	= Auth::attempt(array(
+
+				'email' 			=> Input::get('email'),
+				'password' 			=> Input::get('password'),
+				'active'			=> 1
+				));
+
+			if($auth) {
+				 return Redirect::route('import-get');
+
+			}else {
+				return Redirect::route('login-get')
+						->with('global','combination Passwor and Email wrong');
+			}
+		}
+	}
+
+
+	// Sign out the user 
+
+
+	public function logoutGet() {
+		Auth::logout();
+		return Redirect::route('login-get');
 	}
 }

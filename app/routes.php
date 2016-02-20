@@ -78,12 +78,14 @@ Route::group(array('before' => 'guest'), function(){
 |
 */
 
+// Route::group(array('before'=> 'auth'), function(){
 
 
-		Route::get('import', array(
+
+	Route::get('import', array(
 		'as' 	=> 'import-get',
 		'uses'	=> 'importController@importGet'
-		));
+	));
 	  
 	  // Sales Rout::::::
 	Route::get('sales', array(
@@ -110,6 +112,11 @@ Route::group(array('before' => 'guest'), function(){
 
 		));
 
+	Route::get('logout',array(
+		'as'	=> 'logout-get',
+		'uses'	=> 'accountController@logoutGet'
+		
+		));
 
 
 
