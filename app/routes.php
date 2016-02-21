@@ -107,6 +107,24 @@ Route::group(array('before'=> 'csrf'), function(){
 		'uses'	=> 'salesController@salesGet'
 		));
 
+		// Employee Rout::
+	Route::get('employee', array(
+		'as' 	=> 'employee-get',
+		'uses'	=> 'employeeController@employeeGet'
+		));
+
+	// Stock Rout::
+	Route::get('stock', array(
+		'as' 	=> 'stock-get',
+		'uses'	=> 'stockController@stockGet'
+		));
+
+	//Daily Payment Rout::
+	Route::get('daily', array(
+		'as' 	=> 'daily-get',
+		'uses'	=> 'dailyController@dailyGet'
+		));
+
 	//Lock Screen Rout:::
 
 	Route::get('lock',array(
