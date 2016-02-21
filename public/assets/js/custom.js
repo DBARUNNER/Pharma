@@ -105,3 +105,10 @@ function total() {
     document.getElementById('totalPrice').value = totalPrice;
 }
 
+
+
+// SUBMIT THE FORM 
+
+function submit() {
+    document.getElementById('change-password').submit();
+}

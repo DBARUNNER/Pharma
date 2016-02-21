@@ -2281,6 +2281,13 @@ ul#nav-accordion i {
 }
 
 /*import page style*/
+#changePassword-model {
+    background-color: #68dff0;
+    border-color: #68dff0;
+}
+#change-password > input{
+    margin-bottom: 10px !important;
+}
 #suplier-tab i{
     display: block;
 }
@@ -2368,6 +2375,15 @@ margin-top: 1%;
     display: none;
 }
 
+/*hr style */
+
+hr.style18 {
+    height: 30px;
+    border-style: solid;
+    border-color: #8c8b8b;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
 
 /* Sales Page Style */
 

@@ -80,7 +80,21 @@ Route::group(array('before' => 'guest'), function(){
 
 // Route::group(array('before'=> 'auth'), function(){
 
+	
 
+Route::group(array('before'=> 'csrf'), function(){
+
+
+
+
+});	
+
+
+	// post change password
+	Route::post('change-password',array(
+		'as'	=> 'change-password',
+		'uses'	=> 'accountController@changePassword'
+		));
 
 	Route::get('import', array(
 		'as' 	=> 'import-get',
@@ -118,5 +132,5 @@ Route::group(array('before' => 'guest'), function(){
 		
 		));
 
-
+	
 

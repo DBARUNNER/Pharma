@@ -110,12 +110,14 @@ class accountController extends \BaseController {
 					->withErrors($validator)
 					->withInput();
 		}else {
+
+			$remember = (Input::has('remember')) ? true : false; 
 			$auth 	= Auth::attempt(array(
 
 				'email' 			=> Input::get('email'),
 				'password' 			=> Input::get('password'),
 				'active'			=> 1
-				));
+				), $remember);
 
 			if($auth) {
 				 return Redirect::route('import-get');
@@ -134,5 +136,43 @@ class accountController extends \BaseController {
 	public function logoutGet() {
 		Auth::logout();
 		return Redirect::route('login-get');
+	}
+
+
+
+	// change password post 
+
+	public function changePassword() {
+		$validator = Input::all();
+		print_r($validator);
+
+		$validator = Validator::make(Input::all(), 
+			array(
+				'old-password'	=> 'required',
+				'password'		=> 'required|min:6',
+				'password-again'=> 'required'
+				)
+			);
+		if($validator->fails()) {
+			return "Validator fails";
+		}else {
+
+			$user 				= User::find(Auth::user()->id);
+			$old_password		= Input::get('old-password');
+			$password 			= Input::get('password');
+
+			if(Hash::check($old_password,$user->getAuthPassword())) {
+				$user->password = Hash::make($password);
+
+				if($user->save()) {
+					return Redirect::to('logout')
+									->with('global','Your Password has been changed Successsfully');
+				}
+			}else {
+				return "your old password is incorrect";
+			}
+
+		}
+		return "Your password could not be changed!";
 	}
 }

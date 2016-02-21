@@ -52,6 +52,9 @@
 		            @if($errors->has('password'))
 		            <span style="color:red;">{{ $errors->first('password') }}</span>
 		            @endif
+		            <br>
+		            <input name="remember" id="remember" type="checkbox"></input>
+		            <label for="remember"> Remember me!</label>
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>

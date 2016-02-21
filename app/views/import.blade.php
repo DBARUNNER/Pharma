@@ -80,7 +80,9 @@ Sistan Pharma
                           <span>Extra Pages</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="blank.html">Blank Page</a></li>
+                          <li><a data-toggle="modal" data-target="#contact" data-original-title>
+                           Change Password
+                          </a></li>
                           <li><a  href="{{URL::route('login-get') }}">Login</a></li>
                           <li><a  href="{{URL::route('lock-get') }}">Lock Screen</a></li>
                       </ul>
@@ -255,8 +257,9 @@ Sistan Pharma
 
                       <div class="tab-pane fade" id="messages">
                         <!-- star of Registraton  -->
-                        <div class="container">
+                        <div class="container"  style="width: 100%;">
                           <h3 class="text-info">Customer Register</h3>
+                          <hr class="style18">
       <form class="form-horizontal" role="form">
        <div class="form-group">
           <label for="firstname" class="col-sm-2 control-label">Name:</label>
@@ -313,11 +316,13 @@ Sistan Pharma
             <table class="table table-hover table-bord">
                 <thead>
                     <tr class="filters">
-                        <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="First Name" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Address" disabled></th>        
-                        <th><input type="text" class="form-control" placeholder="Import from Suplier" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Bill No" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Materials" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Suplier" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Date" disabled></th>        
+                        <th><input type="text" class="form-control" placeholder="Total" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Cash" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Loan" disabled></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -363,6 +368,32 @@ Sistan Pharma
 
 </div>
 
+
+            <!-- change password model -->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="contact" class="modal fade">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">Forgot Password ?</h4>
+                          </div>
+                          <div class="modal-body">
+                          <form method="post"  action="{{ URL::route('change-password')}}" id="change-password">
+                              <p>Enter your old password</p>
+                              <input type="password" name="old-password" placeholder="Old Password" autocomplete="off" class="form-control placeholder-no-fix">
+                              <input type="password" name="password" placeholder="New Password" autocomplete="off" class="form-control placeholder-no-fix">
+                              <input type="password" name="password-again" placeholder="password-again" autocomplete="off" class="form-control placeholder-no-fix">
+                          </form>
+                          </div>
+                          <div class="modal-footer">
+                              <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                              <button class="btn btn-theme" onclick="submit();" type="submit">Submit</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+        <!-- End of change password modal  -->
 
 
 <!-- model code is here -->
