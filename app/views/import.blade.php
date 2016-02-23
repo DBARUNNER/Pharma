@@ -137,7 +137,7 @@ Sistan Pharma
           <a href="#messages" data-toggle="tab" title="Add Employee">
             <span class="round-tabs three" id="suplier-tab">
               <i class="glyphicon glyphicon-gift import-icon"></i>
-              <span>Add</span><span>Employee</span>
+              <span>Add</span><span>Suplier</span>
             </span> 
           </a>
         </li>
@@ -322,24 +322,12 @@ Sistan Pharma
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>somthing@gmail.ocm</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>somthing@gmail.ocm</td>
-                    </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>somthing@gmail.ocm</td>
+                    <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material">See Materials</a></td>
+                    <td>Rahim</td>
+                    <td>12/01/2013</td>
+                    <td>10000</td>
+                    <td>2000</td>
+                    <td>8000</td>
                   </tr>
                 </tbody>
               </table>
@@ -359,6 +347,63 @@ Sistan Pharma
       <div class="clearfix"></div>
     </div>
   </div>
+
+
+      <!-- Material  model -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="import-material" class="modal fade">
+      <div class="modal-dialog" id="materila-import">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Material Information </h4>
+          </div>
+          <div class="modal-body">
+           <!-- Material table -->
+              <div class="widget stacked widget-table action-table">
+          <!--   
+        <div class="widget-header">
+          <i class="icon-th-list"></i>
+          <h3>Table</h3>
+        </div>  -->
+        
+        <div class="widget-content">
+          
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Made In</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Product Date</th>
+                  <th>Expire Date</th>
+                  <th>Price</th>
+                  <th>Label</th>
+                  <th>Weight</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              
+              </tbody>
+            </table>
+          
+        </div> <!-- /widget-content -->
+      
+      </div> <!-- /widget -->
+
+
+           <!-- End of material table -->
+          </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                <button class="btn btn-theme" type="submit">Submit</button>
+              </div>
+        </div>
+      </div>
+    </div>
+    <!-- Material Model  -->
+
     <!-- change password model -->
     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="contact" class="modal fade">
       <div class="modal-dialog">
@@ -390,7 +435,7 @@ Sistan Pharma
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="myModalLabel">Import Bit from Suplier</h4>
+        <h4 class="modal-title" id="myModalLabel">Import Bill from Suplier</h4>
       </div>
       <div class="modal-body">
         <!-- Start of BILL form  -->
@@ -498,9 +543,15 @@ Sistan Pharma
                 </div>                            
               </div>
             </div>
-            <div class="row text-right">
-              <div class="col-xs-12">
-                <h4>Total: <strong><span class="preview-total"></span></strong></h4>
+            <div class="row">
+              <div class="col-xs-3" style="margin-top: 11px;">
+                <h4 class="paid-header">Total:</h4> <input class="preview-total" id="bill-total"> </input>
+              </div>
+              <div class="col-xs-4" style="margin-top: 11px;">
+                <h4 class="paid-header">Paid:</h4><input onblur="loan();" type="text" placeholder="Insert Paid" class="paid-input"></input>
+              </div>
+              <div class="col-xs-4" style="margin-top: 11px;">
+                <h4 class="loan-header">Loan:</h4> <input type="text" placeholder="Insert Loan" class="loan-input"></input>
               </div>
             </div>
             <div class="row">
