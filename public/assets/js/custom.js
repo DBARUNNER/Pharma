@@ -63,7 +63,7 @@ function calc_total(){
     $('.input-totalPrice').each(function(){
         sum += parseFloat($(this).text());
     });
-    $(".preview-total").text(sum);    
+    $(".preview-total").val(sum);    
 }
 $(document).on('click', '.input-remove-row', function(){ 
     var tr = $(this).closest('tr');
@@ -111,4 +111,11 @@ function total() {
 
 function submit() {
     document.getElementById('change-password').submit();
+}
+
+// import model java script code 
+
+function loan() {
+    var total = document.getElementById('bill-total').value;
+    alert(total);
 }
