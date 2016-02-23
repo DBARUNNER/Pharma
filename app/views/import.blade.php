@@ -410,7 +410,7 @@ Sistan Pharma
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Forgot Password ?</h4>
+            <h4 class="modal-title">Chagen password!</h4>
           </div>
           <div class="modal-body">
             <form method="post"  action="{{ URL::route('change-password')}}" id="change-password">
@@ -418,6 +418,7 @@ Sistan Pharma
               <input type="password" name="old-password" placeholder="Old Password" autocomplete="off" class="form-control placeholder-no-fix">
               <input type="password" name="password" placeholder="New Password" autocomplete="off" class="form-control placeholder-no-fix">
               <input type="password" name="password-again" placeholder="password-again" autocomplete="off" class="form-control placeholder-no-fix">
+              
             </form>
             </div>
               <div class="modal-footer">
@@ -548,10 +549,10 @@ Sistan Pharma
                 <h4 class="paid-header">Total:</h4> <input class="preview-total" id="bill-total"> </input>
               </div>
               <div class="col-xs-4" style="margin-top: 11px;">
-                <h4 class="paid-header">Paid:</h4><input onblur="loan();" type="text" placeholder="Insert Paid" class="paid-input"></input>
+                <h4 class="paid-header">Paid:</h4><input onblur="loan();" type="text" placeholder="Insert Paid" class="paid-input" id="paid-input"></input>
               </div>
               <div class="col-xs-4" style="margin-top: 11px;">
-                <h4 class="loan-header">Loan:</h4> <input type="text" placeholder="Insert Loan" class="loan-input"></input>
+                <h4 class="loan-header">Loan:</h4> <input type="text" placeholder="Insert Loan" class="loan-input" id="loan-input"></input>
               </div>
             </div>
             <div class="row">

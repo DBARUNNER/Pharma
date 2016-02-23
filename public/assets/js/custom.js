@@ -118,6 +118,8 @@ function submit() {
 
 function loan() {
     var total = document.getElementById('bill-total').value;
-    alert(total);
+    var paid = document.getElementById('paid-input').value;
+    var loan = total - paid; 
+    document.getElementById('loan-input').value = loan;
 }
 
