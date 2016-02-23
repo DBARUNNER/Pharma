@@ -108,32 +108,209 @@ Sistan Pharma/employee
 
 
 @section('content')
-
-    <h2>Employee Info</h2>
-      <div id="tab-style">
-      <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-        <li><a data-toggle="tab" href="#menu1"><i class="fa fa-pencil-square-o"></i> Register New Employee</a></li>
-        <li><a data-toggle="tab" href="#menu2">Salary Payment</a></li>
-        <li><a data-toggle="tab" href="#menu3">Employee History</a></li>
-      </ul>
+  <div class="panel panel-primary  panel-green">
+    <div class="panel-heading">
+      <h3 class="panel-title">&nbsp</h3>
+        <ul class="nav panel-tabs">
+          <li class="active"><a href="#register" data-toggle="tab">Register New Employee</a></li>
+          <li><a href="#salary" data-toggle="tab">Salary Payment</a></li>
+          <li><a href="#employeeHistory" data-toggle="tab">Employee history</a></li>
+        </ul>
+    </div>
+    <div class="panel-body">
       <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-          <h3>HOME</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="tab-pane fade in active" id="register">
+          <div class="container">
+            <div class="panel panel-default">
+              <div class="panel-heading" id ="table-panel">
+               <i class="fa fa-pencil-square-o"></i> Register New Customer
+              </div>
+              <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                 <div class="form-group">
+                    <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Employee Name</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="firstname" 
+                          placeholder="Enter First Name">
+                    </div>
+                 </div>
+                  <div class="form-group">
+                    <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Father Name</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="firstname" 
+                          placeholder="Enter Father Name">
+                    </div>
+                 </div>
+                  <div class="form-group">
+                    <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Tazkera No</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="firstname" 
+                          placeholder="Enter Tazkera Name">
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Address</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="lastname" 
+                          placeholder="Enter Address">
+                    </div>
+                 </div>
+                <div class="form-group">
+                    <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Phone Number</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="lastname" 
+                          placeholder="Enter Phone">
+                    </div>
+                 </div>
+                  <div class="form-group">
+                    <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Email Address</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="lastname" 
+                          placeholder="Enter Email">
+                    </div>
+                 </div>
+                  <div class="form-group">
+                    <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Photo</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="firstname" 
+                          placeholder="Select Photo ">
+                    </div>
+                 </div>
+                  <div class="form-group">
+                    <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Hire Date</label>
+                    <div class="col-sm-10">
+                       <input type="date" class="form-control" id="firstname" 
+                          placeholder="Enter First Name">
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                       <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+                    </div>
+                 </div>
+              </form>
+              </div>
+            </div>
+            </div>
         </div>
-        <div id="menu1" class="tab-pane fade">
-          <h3>Menu 1</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="tab-pane fade" id="salary">
+          <div class="container">
+            <div class="panel panel-default">
+              <div class="panel-heading" id ="table-panel">
+               <i class="fa fa-pencil-square-o"></i> Salary Payment
+              </div>
+              <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                 <div class="form-group">
+                    <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Employee Name</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="firstname" 
+                          placeholder="Enter First Name">
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Salary</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="lastname" 
+                          placeholder="Enter Address">
+                    </div>
+                 </div>
+                  <div class="form-group">
+                    <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Date</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="lastname" 
+                          placeholder="Enter Phone">
+                    </div>
+                 </div>
+                    <div class="form-group">
+                    <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="lastname" 
+                          placeholder="Enter Email">
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                       <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Pay</button>
+                    </div>
+                 </div>
+              </form>
+              </div>
+            </div>
+            </div>
         </div>
-        <div id="menu2" class="tab-pane fade">
-          <h3>Menu 2</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        </div>
-        <div id="menu3" class="tab-pane fade">
-          <h3>Menu 3</h3>
-          <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+        <div class="tab-pane" id="employeeHistory">
+          <div class="panel panel-default filterable">
+            <div class="panel-heading" id ="table-panel" >
+              <h2 class=" text-info panel-title">Agency Sales Info</h2>
+              <div class="pull-right btn-group">
+
+               <!-- Tools Button Start -->
+                <button id="btn-tools" class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i></button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="#"><i class="fa fa-print"></i> Print </a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o"></i> Save as PDF </a></li>
+                  <li><a href="#"><i class="fa fa-file-excel-o"></i> Export to Excel </a>  </li>                       
+                </ul>
+                <!-- Tools Button End -->
+
+                <!-- Filter Button Start -->
+                <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+
+                <!-- Filter Button End -->
+              </div>
+            </div>
+            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+              <thead>
+                <tr class="filters" id="table-style">
+                  <th><input type="text" class="form-control" placeholder="Employee Id" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Name" disabled></th>
+                  <th><input type="date" class="form-control" placeholder="Hire-Date" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Edit" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="delete" disabled></th>
+                </tr>
+
+              </thead>
+              <tbody>
+                <tr>
+                  <td>alex</td>
+                  <td>Alex Nilson</td>
+                  <td>1234</td>
+                  <td class="center">power user </td>
+                  <td class="center"><a class="md-trigger import" data-toggle="modal" data-target="#myModal" > Sale </a></td>
+                  <!-- Sales Modal Start-->
+
+
+                  <!-- Sales Modal End -->
+
+                </tr>
+                <tr>
+                  <td>lisa</td>
+                  <td>Lisa Wong </td>
+                  <td>434</td>
+                  <td class="center">power user </td>
+                  <td class="center">power user </td>
+                </tr>
+                <tr>
+                  <td>nick12 </td>
+                  <td>Nick Roberts</td>
+                  <td class="center">power user </td>
+                  <td class="center">power user </td>
+                  <td class="center">power user </td>
+                </tr>
+                <tr>
+                  <td>goldweb</td>
+                  <td>Sergio Jackson</td>
+                  <td class="center">power user </td>
+                  <td class="center">power user </td>
+                  <td class="center">power user </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 @stop

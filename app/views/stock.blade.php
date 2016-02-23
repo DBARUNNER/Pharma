@@ -108,11 +108,11 @@ Sistan Pharma/stock
   <div id="stock-tab" class="col-md-10 col-sm-10">
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="{{ URL::asset('assets/img/image.jpg') }}">
+            <img class="card-bkimg" alt="" src="{{ URL::asset('assets/img/medicine.jpg') }}">
             <!-- http://lorempixel.com/850/280/people/9/ -->
         </div>
         <div class="useravatar">
-            <img alt="" src="{{ URL::asset('assets/img/image.jpg') }}">
+            <img alt="" src="{{ URL::asset('assets/img/medicine.jpg') }}">
         </div>
         <div class="card-info"> <span class="card-title">Pamela Anderson</span>
 
@@ -141,7 +141,7 @@ Sistan Pharma/stock
         <div class="tab-pane fade in active" id="tab1">
           <div class="panel panel-default filterable">
             <div class="panel-heading" id ="table-panel" >
-              <h2 class="panel-title">Stock Info</h2>
+              <span class="table-panel-heading"><i class = "fa fa-exchange"></i> Stock Info</span>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->
@@ -214,7 +214,7 @@ Sistan Pharma/stock
         <div class="tab-pane fade in" id="tab2">
           <div class="panel panel-default filterable">
             <div class="panel-heading" id ="table-panel" >
-              <h2 class="panel-title">Medicine Info</h2>
+              <span class="table-panel-heading"><i class = "fa fa-exchange"></i> Medicine Info</span>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->

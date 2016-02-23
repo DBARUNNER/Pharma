@@ -66,7 +66,7 @@ Sistan Pharma/Sales
                   </li>
 
                  <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="{{URL::route('daily-get')}}" >
                           <i class="fa fa-cogs"></i>
                           <span>Daily Payment</span>
                       </a>
@@ -108,34 +108,24 @@ Sistan Pharma/Sales
 
 
 @section('content')
-   <h3 class="active-tab text-info"><strong> &nbsp Sales Tab</strong>: <span></span></h3>
-<hr>
 <div id="tab-style">
-<ul id="myTab" class="nav nav-tabs">
+  <ul id="sales-tab" class="nav nav-tabs" id="ul-tab-style">
    <li class="active"><a href="#home" data-toggle="tab">
-      <i class="fa fa-info-circle"></i>  Sales to customer</a></li>
-   <li><a href="#agency" data-toggle="tab">Sales to Agency</a></li>
-   <li><a href="#Chistory" data-toggle="tab">Customer Sales history</a></li>
-   <li><a href="#Ahistory" data-toggle="tab">Agency Sales history</a></li>
-   <li class="dropdown">
-      <a href="#" id="myTabDrop1" class="dropdown-toggle" 
-         data-toggle="dropdown">
-        <i class="fa fa-plus-square"></i> Register <b class="caret"></b></a>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-         <li><a href="#jmeter" tabindex="-1" data-toggle="tab"><i class="fa fa-plus-square"> </i> Add new Customer</a></li>
-         <li><a href="#ejb" tabindex="-1" data-toggle="tab"> <i class="fa fa-plus-square"> </i> Add new Agency</a></li>
-      </ul>
-   </li>
+       Sales to customer <i class="fa fa-chevron-down"></i> </a></li>
+   <li><a href="#agency" data-toggle="tab"> Sales to Agency <i class="fa fa-chevron-down"></i> </a></li>
+   <li><a href="#Chistory" data-toggle="tab"> Customer Sales history <i class="fa fa-chevron-down"></i> </a></li>
+   <li><a href="#Ahistory" data-toggle="tab"> Agency Sales history <i class="fa fa-chevron-down"></i> </a></li>
+   <li><a href="#register" data-toggle="tab"><i class = "fa fa-pencil-square-o"></i> Add new Customer <i class="fa fa-chevron-down"></i> </a></li>
 </ul>
 <!-- Tab Start -->
 <div id="myTabContent" class="tab-content">
   <!-- Customer Tab Start -->
   <div class="tab-pane fade in active" id="home">
-    <div class="panel panel-default filterable">
-      <div class="panel-heading" id ="table-panel" >
-        <h2 class=" text-info panel-title">Agency Sales Info</h2>
+  <hr class="style18">
+    <div class="panel panel-default filterable" style="margin:10px;">
+      <div class="panel-heading" id="table-panel" >
+         <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Sales to customer</span>
         <div class="pull-right btn-group">
-
          <!-- Tools Button Start -->
           <button id="btn-tools" class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i></button>
           <ul class="dropdown-menu pull-right">
@@ -153,7 +143,7 @@ Sistan Pharma/Sales
       </div>
       <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
         <thead>
-          <tr class="filters">
+          <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
             <th><input type="text" class="form-control" placeholder="Customer Name" disabled></th>
             <th><input type="text" class="form-control" placeholder="Address" disabled></th>
@@ -162,7 +152,7 @@ Sistan Pharma/Sales
           </tr>
         </thead>
         <tbody>
-          <tr id="filter-table">
+          <tr>
             <td>alex</td>
             <td>Alex Nilson</td>
             <td><a class="edit" href="#">1234 </a> </td>
@@ -199,9 +189,10 @@ Sistan Pharma/Sales
    <!-- Agency Tab Start -->
 
    <div class="tab-pane fade" id="agency">
-    <div class="panel panel-default filterable">
-      <div class="panel-heading" id ="table-panel" >
-        <h2 class=" text-info panel-title">Agency Sales Info</h2>
+   <hr class="style18">
+    <div class="panel panel-default filterable" style="margin:10px;">
+      <div class="panel-heading" id="table-panel" >
+        <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Sales to Agency</span>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -221,7 +212,7 @@ Sistan Pharma/Sales
       </div>
       <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
         <thead>
-          <tr class="filters">
+          <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
             <th><input type="text" class="form-control" placeholder="Agency Name" disabled></th>
             <th><input type="text" class="form-control" placeholder="Address" disabled></th>
@@ -274,10 +265,10 @@ Sistan Pharma/Sales
    <!-- Customer History Tab Start -->
 
     <div class="tab-pane fade" id="Chistory">
-      <h3 class="text-info">Customer Sales History Info</h3>
-      <div class="panel panel-default filterable">
+    <hr class="style18">
+      <div class="panel panel-default filterable" style="margin:10px;">
       <div class="panel-heading" id ="table-panel" >
-        <h2 class=" text-info panel-title">Agency Sales Info</h2>
+        <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Customer Sales Info</span>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -297,7 +288,7 @@ Sistan Pharma/Sales
       </div>
       <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
         <thead>
-          <tr class="filters">
+          <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
             <th><input type="text" class="form-control" placeholder="Customer Name" disabled></th>
             <th><input type="text" class="form-control" placeholder="Invoice Number" disabled></th>
@@ -375,10 +366,10 @@ Sistan Pharma/Sales
 
    <!-- Agency History Start -->
       <div class="tab-pane fade" id="Ahistory">
-      <h3 class="text-info">Agency Sales History Info</h3>
-            <div class="panel panel-default filterable">
+      <hr class="style18">
+      <div class="panel panel-default filterable" style="margin:10px;">
       <div class="panel-heading" id ="table-panel" >
-        <h2 class=" text-info panel-title">Agency Sales Info</h2>
+        <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Agency Sales Info</span>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -398,7 +389,7 @@ Sistan Pharma/Sales
       </div>
       <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
         <thead>
-          <tr class="filters">
+          <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
             <th><input type="text" class="form-control" placeholder="Customer Name" disabled></th>
             <th><input type="text" class="form-control" placeholder="Invoice Number" disabled></th>
@@ -475,249 +466,158 @@ Sistan Pharma/Sales
    <!-- Agency History End -->
 
    <!-- Register Customer -->
-   <div class="tab-pane fade" id="jmeter">
-      <h3 class="text-info">Customer Register</h3>
-      <form class="form-horizontal" role="form" >
-       <div class="form-group">
-          <label for="firstname" class="col-sm-2 control-label">Name:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="firstname" 
-                placeholder="Name...">
-          </div>
-       </div>
-       <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Address:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="lastname" 
-                placeholder="Address...">
-          </div>
-       </div>
+  <div class="tab-pane fade" id="register">
+  <hr class="style18">    
+    <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading" id ="table-panel">
+       <i class="fa fa-pencil-square-o"></i> Register New Customer
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" role="form">
+         <div class="form-group">
+            <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Customer Name</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="firstname" 
+                  placeholder="Enter First Name">
+            </div>
+         </div>
+         <div class="form-group">
+            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="lastname" 
+                  placeholder="Enter Address">
+            </div>
+         </div>
           <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Phone:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="lastname" 
-                placeholder="Phone...">
-          </div>
-       </div>
-          <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Email:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="lastname" 
-                placeholder="Email...">
-          </div>
-       </div>
-          <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Date:</label>
-          <div class="col-sm-10">
-             <input type="date" class="form-control" id="lastname" 
-                placeholder="Date...">
-          </div>
-       </div>
-       <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-             <button type="submit" class="btn btn-success">Register</button>
-             <button type="Reset" class="btn btn-primary">Reset</button>
-          </div>
-        </div>
+            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Phone</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="lastname" 
+                  placeholder="Enter Phone">
+            </div>
+         </div>
+            <div class="form-group">
+            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="lastname" 
+                  placeholder="Enter Email">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+               <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+            </div>
+         </div>
       </form>
+      </div>
     </div>
+    </div>
+  </div>
     <!-- Customer Register End -->
-       <!-- Sales Modal Start -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog" id="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Sales Bill To Customer</h4>
-                  </div>
-                  <div class="modal-body">
-                    <!-- Start of BILL form  -->
-                    <div class="container-fliud">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <legend>Name of suplier</legend>
-                        </div>
-                        <!-- panel preview -->
-                        <div class="col-sm-4">
-                          <h4>Insert your Material</h4>
-                          <div class="panel panel-default">
-                            <div class="panel-body form-horizontal payment-form">
-                              <div class="form-group">
-                                <label for="name" class="col-sm-3 control-label">Genric Name</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" id="name" name="name">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label for="madIn" class="col-sm-3 control-label">Made in</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" id="madIn" name="madeIn">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label for="weight" class="col-sm-3 control-label">Weight</label>
-                                <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="weight" name="weight">
-                                </div>
-                                <label for="label" class="col-sm-2 control-label">Label</label>
-                                <div class="col-sm-3">
-                                  <input type="text" class="form-control" id="lable" name="label">
-                                </div>
-                              </div>         
-                              <div class="form-group">
-                                <label for="amount" class="col-sm-3 control-label">Quantity</label>
-                                <div class="col-sm-9">
-                                  <input type="number" class="form-control" id="amount" name="amount">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label for="price" class="col-sm-3 control-label">Price</label>
-                                <div class="col-sm-9">
-                                  <input type="number" onblur="total();" class="form-control" id="price" name="price">
-                                </div>
-                              </div>
-                              <div class="form-group" style="display: none;">
-                                <label for="Tatal Price" class="col-sm-3 control-label">Total Price</label>
-                                <div class="col-sm-9">
-                                  <input type="number" class="form-control" id="totalPrice" name="TotalPrice">
-                                </div>
-                              </div>  
-                              <div class="form-group">
-                                <label for="date" class="col-sm-3 control-label">Product Date</label>
-                                <div class="col-sm-9">
-                                  <input type="date" class="form-control" id="productDate" name="product_date">
-                                </div>
-                              </div> 
-                              <div class="form-group">
-                                <label for="date" class="col-sm-3 control-label">Expire Date</label>
-                                <div class="col-sm-9">
-                                  <input type="date" class="form-control" id="expireDate" name="expire_date">
-                                </div>
-                              </div>  
-                              <div class="form-group">
-                                <label for="status" class="col-sm-3 control-label">Status</label>
-                                <div class="col-sm-9">
-                                  <select class="form-control" id="status" name="status">
-                                    <option>Paid</option>
-                                    <option>Unpaid</option>
-                                  </select>
-                                </div>
-                              </div> 
-                              <div class="form-group">
-                                <div class="col-sm-12 text-right">
-                                  <button type="button" class="btn btn-default preview-add-button">
-                                    <span class="glyphicon glyphicon-plus"></span> Add
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                        </div>            
-                      </div> <!-- / panel preview -->
-                      <div class="col-sm-8">
-                        <h4>Preview:</h4>
-                        <div class="row">
-                          <div class="col-xs-12">
-                            <div class="table-responsive">
-                              <table class="table preview-table">
-                                <thead>
-                                  <tr>
-                                    <th>Name</th>
-                                    <th>Made In</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                    <th>Product Date</th>
-                                    <th>Expire Date</th>
-                                    <th>Price</th>
-                                    <th>Total Price</th>
-                                  </tr>
-                                </thead>
-                                <tbody></tbody> <!-- preview content goes here-->
-                              </table>
-                            </div>                            
+    <!-- Sales Modal Start -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" id="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalLabel">Sales Bill To Customer</h4>
+          </div>
+          <div class="modal-body">
+          <!-- Start of BILL form  -->
+            <div class="container-fliud">
+              <div class="row">
+                <div class="col-sm-12">
+                  <legend>Name of Customer</legend>
+                </div>
+                <!-- panel preview -->
+                <div class="col-sm-4">
+                  <h4>Insert your Material</h4>
+                    <div class="panel panel-default">
+                      <div class="panel-body form-horizontal payment-form">
+                        <div class="form-group">
+                          <label for="name" class="col-sm-3 control-label"> Item Name</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="name" name="name">
+                          </div>
+                        </div>        
+                        <div class="form-group">
+                          <label for="amount" class="col-sm-3 control-label">Quantity</label>
+                          <div class="col-sm-9">
+                            <input type="number" class="form-control" id="amount" name="amount">
                           </div>
                         </div>
-                        <div class="row text-right">
-                          <div class="col-xs-12">
-                            <h4>Total: <strong><span class="preview-total"></span></strong></h4>
+                        <div class="form-group">
+                          <label for="price" class="col-sm-3 control-label">Price</label>
+                          <div class="col-sm-9">
+                            <input type="text" onblur="total();" class="form-control" id="price" name="price">
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-xs-12">
-                            <hr style="border:1px dashed #dddddd;">
-                            <button type="button" class="btn btn-primary btn-block">Submit all and finish</button>
-                          </div>                
+                        <div class="form-group" style="display: none;">
+                          <label for="Tatal Price" class="col-sm-3 control-label">Total Price</label>
+                          <div class="col-sm-9">
+                            <input type="number" class="form-control" id="totalPrice" name="TotalPrice">
+                          </div>
+                        </div>  
+                        <div class="form-group">
+                          <label for="status" class="col-sm-3 control-label">Status</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" id="status" name="status">
+                              <option>Paid</option>
+                              <option>Unpaid</option>
+                            </select>
+                          </div>
+                        </div> 
+                        <div class="form-group">
+                          <div class="col-sm-12 text-right">
+                            <button type="button" class="btn btn-default preview-add-button">
+                              <span class="glyphicon glyphicon-plus"></span> Add
+                            </button>
+                          </div>
                         </div>
                       </div>
+                    </div>            
+                  </div> <!-- / panel preview -->
+                  <div class="col-sm-8">
+                    <h4>Preview:</h4>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="table-responsive">
+                          <table class="table preview-table">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Chash</th>
+                                <th>Loan</th>
+                                <th>Balance</th>
+                                <th>Price</th>
+                                <th>Total Price</th>
+                              </tr>
+                            </thead>
+                          <tbody></tbody> <!-- preview content goes here-->
+                        </table>
+                      </div>                            
                     </div>
                   </div>
-                    <!-- End of BILL form  -->
-                </div>   
+                  <div class="row text-right">
+                    <div class="col-xs-12">
+                      <h4>Total: <strong><span class="preview-total"></span></strong></h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <hr style="border:1px dashed #dddddd;">
+                      <button type="button" class="btn btn-primary btn-block">Submit all and finish</button>
+                    </div>                
+                  </div>
+                </div>
               </div>
             </div>
-          <!-- Sales Modal End -->
-
-    <!-- Agency Register Start =-->
-  <div class="tab-pane fade" id="ejb">
-  <h3 class="text-info">Agency Register</h3>
-    <form class="form-horizontal" role="form">
-       <div class="form-group">
-          <label for="firstname" class="col-sm-2 control-label">Name:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="firstname" 
-                placeholder="Name...">
-          </div>
-       </div>
-       <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Father name:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="lastname" 
-                placeholder="Address...">
-          </div>
-       </div>
-       <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Phone:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="lastname" 
-                placeholder="Phone...">
-          </div>
-       </div>
-        <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Address:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="lastname" 
-                placeholder="Email...">
-          </div>
-       </div>
-        <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Email:</label>
-          <div class="col-sm-10">
-             <input type="date" class="form-control" id="lastname" 
-                placeholder="Date...">
-          </div>
-       </div>
-       <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Register Date:</label>
-          <div class="col-sm-10">
-             <input type="date" class="form-control" id="lastname" 
-                placeholder="Registerition Date...">
-          </div>
-       </div>
-       <div class="form-group">
-          <label for="lastname" class="col-sm-2 control-label">Location:</label>
-          <div class="col-sm-10">
-             <input type="text" class="form-control" id="lastname" 
-                placeholder="Location...">
-          </div>
-       </div>
-       <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-             <button type="submit" class="btn btn-success">Register</button>
-             <button type="Reset" class="btn btn-primary">Reset</button>
-          </div>
-       </div>
-    </form>
-   </div>
-   <!-- Agency register End -->
+            <!-- End of BILL form  -->
+          </div>   
+        </div>
+      </div>
+      <!-- Sales Modal End -->
 </div>
 </div>
 <!-- End Tab -->

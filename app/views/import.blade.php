@@ -68,7 +68,7 @@ Sistan Pharma
                   </li>
 
                  <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="{{URL::route('daily-get')}}" >
                           <i class="fa fa-cogs"></i>
                           <span>Daily Payment</span>
                       </a>

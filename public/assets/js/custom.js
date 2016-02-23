@@ -112,3 +112,4 @@ function total() {
 function submit() {
     document.getElementById('change-password').submit();
 }
+

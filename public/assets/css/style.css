@@ -2248,6 +2248,15 @@ label {
     CUSTOME STYLE 
 ============================================================================*/
 
+
+/* Form Label Styles Start */
+    #label-font-style {
+        color: green;
+        font-weight: bold;
+        font-size: 14px;
+    }
+/* Form Label Styles End */
+
 #toltip {
     color: #fff;
 }
@@ -2359,7 +2368,6 @@ a.import {
 
 #tab-style {
     background-color: #fff;
-    margin:7px 7px 7px ;
 }
 
 /*import model css style*/
@@ -2389,7 +2397,11 @@ hr.style18 {
 
 #table-panel {
     background-color:#fff;
-    border-top: none;
+}
+
+.table-panel-heading {
+    color:#194824;
+    font-size: 24px;
 }
 
 /* Btn Tools */
@@ -2399,10 +2411,18 @@ hr.style18 {
     margin-right: 40px;
 }
 
-#filter-table {
-    background-color:blue;
+
+#sales-tab {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: -6px;
+    background-color: #1B3737;
+    padding: 9px;
 }
 
+#sales-tab > li > a:hover {
+    background-color: #5EBBE6;
+}
 
 /* Sales Page Style End */
 
@@ -2499,3 +2519,63 @@ hr.style18 {
 
 
 /* Stock Page End */
+
+
+
+/* Employee Page Style Start --> */
+/*Panel tabs*/
+.panel-green .panel-tabs {
+    position: relative;
+    bottom: 0px;
+    clear:both;
+    border-bottom: none;
+}
+
+.panel-green .panel-tabs > li {
+    float: left;
+}
+
+.panel-green .panel-tabs > li > a {
+    margin-right: 2px;
+    margin-top: 4px;
+    line-height: .85;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 25px;
+}
+
+.panel-green .panel-tabs > li > a:hover {
+    border-color: transparent;
+    color: #fff;
+    background-color: #55281A;
+}
+
+
+.panel-green .panel-tabs > li.active > a,
+.panel-green .panel-tabs > li.active > a:hover,
+.panel-green .panel-tabs > li.active > a:focus {
+    color: #737373;
+    cursor: default;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 5px 5px 0 0;
+    background-color: #f8f1e7;
+    border-bottom-color: transparent;
+    border-top-color: #448401;
+}
+.panel-primary.panel-green{
+    border-color:#e2e2e2;
+     background-color: #f8f1e7;
+}
+.panel-primary.panel-green>.panel-heading{
+    background-color: #2D591A;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+
+/* Employee Page Style End --> */
