@@ -113,12 +113,11 @@ function submit() {
     document.getElementById('change-password').submit();
 }
 
-<<<<<<< HEAD
-=======
+
 // import model java script code 
 
 function loan() {
     var total = document.getElementById('bill-total').value;
     alert(total);
 }
->>>>>>> b2c00d6f29e5d7792731074856b17a72b48da82e
+
