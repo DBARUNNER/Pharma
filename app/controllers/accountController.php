@@ -175,4 +175,38 @@ class accountController extends \BaseController {
 		}
 		return "Your password could not be changed!";
 	}
+
+	/*
+	| RECOVER PASSWORD WHICH IS FORGOTED!
+	*/ 
+		
+		public function recoverPassword() {
+			$validator 	= Validator::make(Input::all(), array(
+				'email' 	=> 'required|email'
+				));
+			if($validator->fails()) {
+				return Redirect::route('login-get')
+								->with('global','Email format is wrogn');
+			}else {
+
+				$user 	= User::where('email', '=', Input::get('email'));
+
+				if($user->count()) {
+					$user 					= $user->first();
+
+					// Generate a new code and password 
+
+					$code 					= str_random(60);
+					$password 				= str_random(10);
+
+					$user->code 			= $code;
+					$user->password_temp 		= Hash::make($password);
+
+					if($user->save()) {
+
+					}
+				}
+			}
+		}	
+
 }

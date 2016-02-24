@@ -123,3 +123,6 @@ function loan() {
     document.getElementById('loan-input').value = loan;
 }
 
+
+
+

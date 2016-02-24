@@ -90,15 +90,18 @@
 		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		                          <h4 class="modal-title">Forgot Password ?</h4>
 		                      </div>
+		                      <form id="forgot-password-form" method="post" action="{{ URL::route('recover-account-post')}}">
 		                      <div class="modal-body">
 		                          <p>Enter your e-mail address below to reset your password.</p>
-		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" required="required">
 		
 		                      </div>
+		                    
 		                      <div class="modal-footer">
-		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                          <button class="btn btn-theme" type="button">Submit</button>
+		                          <button  data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+		                          <button  class="btn btn-theme" type="submit">Submit</button>
 		                      </div>
+		                        </form>
 		                  </div>
 		              </div>
 		          </div>
@@ -116,7 +119,7 @@
     <script>
         $.backstretch("assets/img/login-page.jpg", {speed: 500});
     </script>
-
-
+    <!-- custom js script  -->
+    <script type="text/javascript" src="{{ URL::asset('assets/js/custom.js') }}"></script>
   </body>
 </html>

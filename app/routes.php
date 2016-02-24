@@ -56,9 +56,17 @@ Route::group(array('before' => 'guest'), function(){
 			
 			));
 
-
-
 	});
+
+			/*
+			| RECOVER THE ACCOUNT 
+			*/ 
+
+			Route::post('accout/recover',array(
+				'as'	=> 'recover-account-post',
+				'uses'	=> 'accountController@recoverPassword'
+				));
+
 
 });
 
@@ -158,3 +166,11 @@ Route::group(array('before'=> 'csrf'), function(){
 
 	
 
+
+
+	// Admin route is all here 
+
+	Route::get('admin',array(
+		'as'	=> 'admin-get',
+		'uses'	=> 'adminController@index'
+		));

@@ -35,11 +35,19 @@
       *********************************************************************************************************************************************************** -->
       <!--header start-->
       <header class="header black-bg">
+        <!-- Error Message  -->
+            <!-- <div class="row">
+                <div class="col-md-8 col-offset-4">
+                    Error message is here!
+                </div>
+            </div> -->
+
+        <!-- End of Error message -->
               <div class="sidebar-toggle-box">
                   <div id="toltip" class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Sistan Pharma</b></a>
+            <a href="index.html" class="logo"><b>SISTAN PHARMA</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -179,7 +187,6 @@
                     </li>
                     <!-- inbox dropdown end -->
                 </ul>
-                
                 <!--  notification end -->
             </div>
             <div class="top-menu">

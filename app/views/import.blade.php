@@ -304,7 +304,7 @@ Sistan Pharma
         <div class="container-fluid">
           <div class="row">
             <div class="panel panel-default filterable">
-              <div class="panel-heading" style="background-color:#fff;">
+              <div class="panel-heading">
                 <h1 class="panel-title">Import History</h1>
                 <div class="pull-right">
                   <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
