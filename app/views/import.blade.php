@@ -24,7 +24,7 @@ Sistan Pharma
                   <h5 class="centered">Marcel Newman</h5>
                     
                   <li class="mt">
-                      <a href="index.html">
+                      <a href="{{URL::route('home-get')}}">
                           <i class="fa fa-dashboard"></i>
                           <span>Home</span>
                       </a>
@@ -106,10 +106,6 @@ Sistan Pharma
 
 
 @stop
-
-
-
-
 
 @section('content')
   <div class="board">
@@ -255,44 +251,51 @@ Sistan Pharma
       <div class="tab-pane fade" id="messages">
         <!-- star of Registraton  -->
         <div class="container"  style="width: 100%;">
-          <h3 class="text-info">Customer Register</h3>
-          <hr class="style18">
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <label for="firstname" class="col-sm-2 control-label">Name:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="firstname" 
-                placeholder="Name...">
-              </div>
+            <hr class="style18">    
+    <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading" id ="table-panel">
+       <i class="fa fa-pencil-square-o"></i> Register New Supplier
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" role="form">
+         <div class="form-group">
+            <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Supplier Name</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="firstname" 
+                  placeholder="Enter First Name">
             </div>
-            <div class="form-group">
-              <label for="lastname" class="col-sm-2 control-label">Address:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="lastname" 
-                placeholder="Address...">
-              </div>
+         </div>
+         <div class="form-group">
+            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="lastname" 
+                  placeholder="Enter Address">
             </div>
-            <div class="form-group">
-              <label for="lastname" class="col-sm-2 control-label">Phone:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="lastname" 
-                placeholder="Phone...">
-              </div>
+         </div>
+          <div class="form-group">
+            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Phone</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="lastname" 
+                  placeholder="Enter Phone">
             </div>
+         </div>
             <div class="form-group">
-              <label for="lastname" class="col-sm-2 control-label">Email:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="lastname" 
-                placeholder="Email...">
-              </div>
-            </div>  
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success">Register</button>
-                <button type="Reset" class="btn btn-primary">Reset</button>
-              </div>
+            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" id="lastname" 
+                  placeholder="Enter Email">
             </div>
-          </form>
+         </div>
+         <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+               <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+            </div>
+         </div>
+      </form>
+      </div>
+    </div>
+    </div>
         </div>
           <!-- End of Registration -->
       </div>

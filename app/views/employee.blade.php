@@ -22,7 +22,7 @@ Sistan Pharma/employee
                   <h5 class="centered">Marcel Newman</h5>
                     
                   <li class="mt">
-                      <a href="index.html">
+                      <a href="{{URL::route('home-get')}}">
                           <i class="fa fa-dashboard"></i>
                           <span>Home</span>
                       </a>
