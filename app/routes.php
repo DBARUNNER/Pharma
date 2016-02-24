@@ -113,6 +113,12 @@ Route::group(array('before'=> 'csrf'), function(){
 		'uses'	=> 'employeeController@employeeGet'
 		));
 
+	// Home Rout::
+	Route::get('home', array(
+		'as' 	=> 'home-get',
+		'uses'	=> 'homeController@homeGet'
+		));
+
 	// Stock Rout::
 	Route::get('stock', array(
 		'as' 	=> 'stock-get',
