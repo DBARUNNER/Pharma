@@ -89,7 +89,7 @@ $(function(){
         form_data["remove-row"] = '<span class="glyphicon glyphicon-remove"></span>';
         var row = $('<tr></tr>');
         $.each(form_data, function( type, value ) {
-            $('<td class="input-'+type+'"></td>').html(value).appendTo(row);
+            $('<td class="input-'+type+'"><input></input></td>').html(value).appendTo(row);
         });
         $('.preview-table > tbody:last').append(row); 
         calc_total();
@@ -124,5 +124,92 @@ function loan() {
 }
 
 
+$(document).ready(function(){
 
+    $('div#error-message').fadeTo(3000,0.4);
+    $('div#error-message').fadeOut(6000);
+
+});
+
+
+
+
+// AJAX CODE TO DISPLAY SUPLIER LIST
+
+$(document).ready(function(){
+  $("li#importSplier").click(function(){
+    $.get("listSuplier",function(data,status){
+      document.getElementById('import-table-body').innerHTML = data;
+    });
+  });
+});
+
+
+
+
+
+// Submit Table Data 
+function import_from_suplier() {
+    var cell = $('.input-name,.input-madeIn,.input-amount,.input-status,.input-product_date,.input-exp_date,.input-price,.input-weight,.input-label,.input-totalPrice');
+    var i = 0;
+    var data = new Array();
+    while(cell[i] != undefined) {
+        data[i] = cell[i].innerHTML;
+        i++;
+    }
+
+    var paid = document.getElementById('paid-input').value;
+    var loan = document.getElementById('loan-input').value;
+    var total = document.getElementById('bill-total').value;
+    var person_id = document.getElementById('suplier_id').value;
+    $(document).ready(function(){
+        
+    $.post("importFromSuplier",
+    {
+      material:data,
+      pay:paid,
+      remain:loan,
+      all:total,
+      suplier_id: person_id 
+      
+    },
+    function(data,status){
+      alert(data);
+    });
+});
+
+}
+
+
+
+    // set person id in the div 
+    function setId(id) {
+        document.getElementById('suplier_id').value = id;
+    }
+
+// show Import History content 
+$(document).ready(function(){
+  $("li#showHistory").click(function(){
+    $.get("importHistory",function(data,status){
+        document.getElementById('table-history-body').innerHTML = data;
+    });
+  });
+});
+
+
+// 
+function seeImportMaterial(id){
+
+$(document).ready(function(){
+        
+    $.post("setImportMaterial",
+    {
+       id:id
+    },
+    function(data,status){
+      document.getElementById('import-material-body').innerHTML = data;
+    });
+});
+
+}
 

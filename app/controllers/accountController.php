@@ -76,7 +76,7 @@ class accountController extends \BaseController {
 			
 			if($user->save()) {
 
-				return Redirect::route('create-account-get')
+				return Redirect::route('login-get')
 						->with('global',"<sapn style='color:blue;'>Your account activated successfully!</span>");
 			}else {
 
@@ -204,9 +204,41 @@ class accountController extends \BaseController {
 
 					if($user->save()) {
 
+						Mail::send('emails.auth.forgot', array('link' => URL::route('account-recover-get',$code), 'username' => $user->username, 'password' => $password), function($message) use($user) {
+							$message->to($user->email,$user->username)->subject("new password!");
+
+						});
+
+						return Redirect::route('login-get')
+									->with('global','we have sent new passwor by email');
 					}
 				}
 			}
 		}	
 
+
+		/*
+		| FORGOT PASSWORD CHANGE THE USER PASSWORD WHICH IS FORGOTED
+		*/ 
+
+		public function getRecover($code) {
+			$user 	= User::where('code',$code)
+							->where('password_temp','!=','');
+
+			if($user->count()) {
+				$user = $user->first();
+
+				$user->password 			= 	$user->password_temp;
+				$user->code 				= '';
+				$user->password_temp 		= '';
+
+				if($user->save()) {
+					return Redirect::route('login-get')
+								->with('global','Your account hase been recoverd');
+
+				}
+			}
+			return Redirect::route('login-get')
+						->with('global','Could not recover your account!');
+		}
 }

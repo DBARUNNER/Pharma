@@ -72,6 +72,7 @@
 		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
 		            </div>
 		        </div>
+		        {{ Form::token() }}
 		      </form>	  	 	
 	  	</div>
 	  </div>

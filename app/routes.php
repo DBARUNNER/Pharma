@@ -67,6 +67,15 @@ Route::group(array('before' => 'guest'), function(){
 				'uses'	=> 'accountController@recoverPassword'
 				));
 
+			/*
+			| Emaol route is here to recover password 
+			*/ 
+
+			Route::get('account/recover/{code}', array(
+				'as'	=> 'account-recover-get',
+				'uses'	=> 'accountController@getRecover'
+				));	
+
 
 });
 
@@ -90,12 +99,11 @@ Route::group(array('before' => 'guest'), function(){
 
 	
 
-Route::group(array('before'=> 'csrf'), function(){
+// Route::group(array('before'=> 'auth'), function(){
 
 
 
 
-});	
 
 
 	// post change password
@@ -152,11 +160,6 @@ Route::group(array('before'=> 'csrf'), function(){
 		'uses'	=> 'accountController@registerGet'
 	));
 
-	Route::post('register',array(
-		'as'	=> 'create-account-post',
-		'uses'	=> 'accountController@createPost'
-
-		));
 
 	Route::get('logout',array(
 		'as'	=> 'logout-get',
@@ -166,7 +169,29 @@ Route::group(array('before'=> 'csrf'), function(){
 
 	
 
+Route::group(array('before' => 'csrf'), function() {
 
+
+
+	// Register new user to use the system 
+	Route::post('register',array(
+		'as'	=> 'create-account-post',
+		'uses'	=> 'accountController@createPost'
+
+		));
+
+
+
+});
+
+	
+
+	// Register new suplier
+	Route::post('register/suplier',array(
+		'as'	=> 'register-suplier-post',
+		'uses'	=> 'importController@registerSuplier'
+
+		)); 
 
 	// Admin route is all here 
 
@@ -174,3 +199,34 @@ Route::group(array('before'=> 'csrf'), function(){
 		'as'	=> 'admin-get',
 		'uses'	=> 'adminController@index'
 		));
+
+
+	// Route to List Suplier		
+	Route::get('listSuplier','importController@listSuplier');
+
+	// Route import bill from suplier 
+	Route::post('importFromSuplier', array(
+		'as'	=> 'import-from-suplier',
+		'uses'	=> 'importController@importFromSuplier'
+		));
+
+	// import history route 
+	Route::get('importHistory',array(
+		'as'	=> 'import-history-get',
+		'uses'	=> 'importController@importHistory'
+		
+		));
+	// see import material based on bill id 
+	Route::post('setImportMaterial',array(
+		'as'	=> 'see-import-material',
+		'uses'	=> 'importController@seeImportMaterial'
+		));
+
+
+
+
+// });	
+
+
+
+

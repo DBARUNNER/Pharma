@@ -36,13 +36,7 @@
       <!--header start-->
       <header class="header black-bg">
         <!-- Error Message  -->
-            <!-- <div class="row">
-                <div class="col-md-8 col-offset-4">
-                    Error message is here!
-                </div>
-            </div> -->
-
-        <!-- End of Error message -->
+      
               <div class="sidebar-toggle-box">
                   <div id="toltip" class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
@@ -215,7 +209,7 @@
               <li><a href="" class="navigation-tab">Sales</a></li>
           </ul></div>
             @yield('content')
-
+            
 
             <!-- change password model -->
                   <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">

@@ -83,7 +83,7 @@ Sistan Pharma
                           <li><a data-toggle="modal" data-target="#contact" data-original-title>
                            Change Password
                           </a></li>
-                          <li><a  href="{{URL::route('login-get') }}">Login</a></li>
+                          <li><a  href="{{URL::route('logout-get') }}">Login</a></li>
                           <li><a  href="{{URL::route('lock-get') }}">Lock Screen</a></li>
                       </ul>
                   </li>
@@ -108,12 +108,41 @@ Sistan Pharma
 @stop
 
 @section('content')
+      @if(Session::has('error'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-danger" id="error-message">
+                    <strong style="font-size: 20px;">Error !</strong><span style="font-size: 13px;"> {{ Session::get('error') }} </span>
+                </div>
+            </div>
+
+      @endif
+
+      @if($errors->has('email'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-danger" id="error-message">
+                    <strong style="font-size: 20px;">Error !</strong>
+                    @foreach($errors as $error)
+                      <ul><li>{{ $error }}</li></ul>
+                    @endforeach
+                </div>
+            </div>
+      @endif
+
+      @if(Session::has('success'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-success" id="error-message">
+                    <strong style="font-size: 20px;">Info !</strong><span style="font-size: 13px;"> {{ Session::get('success') }} </span>
+                </div>
+            </div>
+
+      @endif
+        <!-- End of Error message -->
   <div class="board">
     <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
     <div class="board-inner">
       <ul class="nav nav-tabs" id="myTab">
       <div class="liner"></div>
-        <li class="active">
+        <li class="active" id="suplierList">
           <a href="#home" data-toggle="tab" title="Suplier List">
             <span class="round-tabs one" id="suplier-tab">
               <i class="glyphicon glyphicon-home import-icon"></i>
@@ -121,7 +150,7 @@ Sistan Pharma
               </span> 
           </a>
         </li>
-        <li>
+        <li id="importSplier">
           <a href="#profile" data-toggle="tab" title="Import form Suplier" >
             <span class="round-tabs two" id="suplier-tab">
               <i class="glyphicon glyphicon-user import-icon" ></i>
@@ -137,7 +166,7 @@ Sistan Pharma
             </span> 
           </a>
         </li>
-        <li>
+        <li id="showHistory">
           <a href="#settings" data-toggle="tab" title="Import History">
             <span class="round-tabs four" id="suplier-tab">
               <i class="glyphicon glyphicon-comment import-icon"></i>
@@ -170,27 +199,16 @@ Sistan Pharma
                   </tr>
                 </thead>
                 <tbody>
+                @foreach($suplierList as $suplier)
                   <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>somthing@gmail.ocm</td>
+                    <td>{{ $suplier->id }}</td>
+                    <td>{{ $suplier->name }}</td>
+                    <td>{{ $suplier->phone }}</td>
+                    <td>{{ $suplier->address }}</td>
+                    <td>{{ $suplier->email }}</td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>somthing@gmail.ocm</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>somthing@gmail.ocm</td>
-                  </tr>
+                @endforeach
+                  
                 </tbody>
               </table>
             </div>
@@ -219,28 +237,8 @@ Sistan Pharma
                     <th><input type="text" class="form-control" placeholder="Import from Suplier" disabled></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><a class="md-trigger import" data-toggle="modal" data-target="#myModal">Import Bill</a></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><a class="md-trigger import" data-toggle="modal" data-target="#secondModel">Import Bill</a></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>somthing@gmail.ocm</td>
-                  </tr>
+                <tbody id="import-table-body">
+               
                 </tbody>
               </table>
             </div>
@@ -251,6 +249,7 @@ Sistan Pharma
       <div class="tab-pane fade" id="messages">
         <!-- star of Registraton  -->
         <div class="container"  style="width: 100%;">
+        <h3 class="suplier-header">Suplier Information</h3>
             <hr class="style18">    
     <div class="container">
     <div class="panel panel-default">
@@ -258,33 +257,33 @@ Sistan Pharma
        <i class="fa fa-pencil-square-o"></i> Register New Supplier
       </div>
       <div class="panel-body">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" method="post" action="{{ URL::route('register-suplier-post')}}">
          <div class="form-group">
             <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Supplier Name</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="firstname" 
-                  placeholder="Enter First Name">
+               <input type="text" name="firstName" class="form-control" id="firstname" 
+                  placeholder="Enter First Name" required="required">
             </div>
          </div>
          <div class="form-group">
-            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Address</label>
+            <label id = "label-font-style" for="address" class="col-sm-2 control-label">Address</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="lastname" 
-                  placeholder="Enter Address">
+               <input type="text" name="address" class="form-control" id="address" 
+                  placeholder="Enter Address" required="required">
             </div>
          </div>
           <div class="form-group">
-            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Phone</label>
+            <label id = "label-font-style" for="phone" class="col-sm-2 control-label">Phone</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="lastname" 
-                  placeholder="Enter Phone">
+               <input type="text" name="phone" class="form-control" id="phone" 
+                  placeholder="Enter Phone" required="required">
             </div>
          </div>
             <div class="form-group">
-            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Email</label>
+            <label id = "label-font-style" for="email" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="lastname" 
-                  placeholder="Enter Email">
+               <input type="email" name="email" class="form-control" id="email" 
+                  placeholder="Enter Email" required="required">
             </div>
          </div>
          <div class="form-group">
@@ -293,6 +292,7 @@ Sistan Pharma
             </div>
          </div>
       </form>
+      {{ Form::token() }}
       </div>
     </div>
     </div>
@@ -322,16 +322,8 @@ Sistan Pharma
                     <th><input type="text" class="form-control" placeholder="Loan" disabled></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material">See Materials</a></td>
-                    <td>Rahim</td>
-                    <td>12/01/2013</td>
-                    <td>10000</td>
-                    <td>2000</td>
-                    <td>8000</td>
-                  </tr>
+                <tbody id="table-history-body">
+
                 </tbody>
               </table>
             </div>
@@ -386,7 +378,7 @@ Sistan Pharma
 
               </tr>
             </thead>
-            <tbody>
+            <tbody id="import-material-body">
               
               </tbody>
             </table>
@@ -542,7 +534,7 @@ Sistan Pharma
                         <th>Total Price</th>
                       </tr>
                     </thead>
-                    <tbody></tbody> <!-- preview content goes here-->
+                    <tbody id="import-table"></tbody> <!-- preview content goes here-->
                   </table>
                 </div>                            
               </div>
@@ -557,11 +549,12 @@ Sistan Pharma
               <div class="col-xs-4" style="margin-top: 11px;">
                 <h4 class="loan-header">Loan:</h4> <input type="text" placeholder="Insert Loan" class="loan-input" id="loan-input"></input>
               </div>
+              <input id="suplier_id" style="display: none;"></input>
             </div>
             <div class="row">
               <div class="col-xs-12">
                 <hr style="border:1px dashed #dddddd;">
-                <button type="button" class="btn btn-primary btn-block">Submit all and finish</button>
+                <button type="button" class="btn btn-primary btn-block" id="submit-table" onclick="import_from_suplier();">Submit all and finish</button>
               </div>                
             </div>
           </div>

@@ -1,4 +1,4 @@
-
+/*
 Template Name: DASHGUM FREE - Bootstrap 3.2 Admin Theme
 Template Version: 1.0
 Author: Carlos Alvarez
@@ -2290,6 +2290,11 @@ ul#nav-accordion i {
 }
 
 /*import page style*/
+
+.suplier-header {
+    margin-left: 30px;
+}
+
 .paid-header,.loan-header {
      display: inline !important;
 
@@ -2704,6 +2709,14 @@ hr.style18 {
     border-bottom: none;
 }
 
+
+/*Error message style goes here!*/
+
+
+#error-message {
+    margin-left: 1%;
+    margin-bottom: 0px; 
+}
 
 /* Employee Page Style End --> */
 

@@ -93,7 +93,7 @@
 		                      <form id="forgot-password-form" method="post" action="{{ URL::route('recover-account-post')}}">
 		                      <div class="modal-body">
 		                          <p>Enter your e-mail address below to reset your password.</p>
-		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" required="required">
+		                          <input type="email" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix" required="required">
 		
 		                      </div>
 		                    
