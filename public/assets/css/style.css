@@ -2545,18 +2545,6 @@ hr.style18 {
 }
 
 
-#sales-tab {
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: -6px;
-    background-color: #1B3737;
-    padding: 9px;
-}
-
-#sales-tab > li > a:hover {
-    background-color: #5EBBE6;
-}
-
 /* Sales Page Style End */
 
 

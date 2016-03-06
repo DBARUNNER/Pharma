@@ -133,7 +133,15 @@ Sistan Pharma/Sales
    <li><a href="#agency" data-toggle="tab"> Sales to Agency <i class="fa fa-chevron-down"></i> </a></li>
    <li><a href="#Chistory" data-toggle="tab"> Customer Sales history <i class="fa fa-chevron-down"></i> </a></li>
    <li><a href="#Ahistory" data-toggle="tab"> Agency Sales history <i class="fa fa-chevron-down"></i> </a></li>
-   <li><a href="#register" data-toggle="tab"><i class = "fa fa-pencil-square-o"></i> Add new Customer <i class="fa fa-chevron-down"></i> </a></li>
+  <li class="dropdown">
+    <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+      data-toggle="dropdown">
+     <i class = "fa fa-pencil-square-o"></i> Register New <b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+         <li><a href="#registerCustomer" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Customer</a></li>
+         <li><a href="#registerAgency" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Agency</a></li>
+      </ul>
+   </li>
 </ul>
 <!-- Tab Start -->
 <div id="myTabContent" class="tab-content">
@@ -192,7 +200,6 @@ Sistan Pharma/Sales
    <!-- Agency Tab Start -->
 
    <div class="tab-pane fade" id="agency">
-   <hr class="style18">
     <div class="panel panel-default filterable" style="margin:10px;">
       <div class="panel-heading" id="table-panel" >
         <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Sales to Agency</span>
@@ -268,7 +275,6 @@ Sistan Pharma/Sales
    <!-- Customer History Tab Start -->
 
     <div class="tab-pane fade" id="Chistory">
-    <hr class="style18">
       <div class="panel panel-default filterable" style="margin:10px;">
       <div class="panel-heading" id ="table-panel" >
         <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Customer Sales Info</span>
@@ -364,7 +370,6 @@ Sistan Pharma/Sales
 
    <!-- Agency History Start -->
       <div class="tab-pane fade" id="Ahistory">
-      <hr class="style18">
       <div class="panel panel-default filterable" style="margin:10px;">
       <div class="panel-heading" id ="table-panel" >
         <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Agency Sales Info</span>
@@ -459,8 +464,7 @@ Sistan Pharma/Sales
    <!-- Agency History End -->
 
    <!-- Register Customer -->
-  <div class="tab-pane fade" id="register">
-  <hr class="style18">    
+  <div class="tab-pane fade" id="registerCustomer"> 
     <div class="container">
     <div class="panel panel-default">
       <div class="panel-heading" id ="table-panel">
@@ -508,6 +512,55 @@ Sistan Pharma/Sales
   </div>
     <!-- Customer Register End -->
 
+
+   <!-- Register Customer -->
+  <div class="tab-pane fade" id="registerAgency">
+    <div class="container">
+    <div class="panel panel-default" style="margin:5px;">
+      <div class="panel-heading" id ="table-panel">
+       <i class="fa fa-pencil-square-o"></i> Register New Agency
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" role="form" method="POST" action="{{ URL::route('register-customer-post')}}">
+         <div class="form-group">
+            <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Agency Name</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" name="firstName" id="firstname" 
+                  placeholder="Enter First Name" required="required">
+            </div>
+         </div>
+         <div class="form-group">
+            <label id = "label-font-style" for="address" class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" name="address" id="address" 
+                  placeholder="Enter Address" required="required">
+            </div>
+         </div>
+          <div class="form-group">
+            <label id = "label-font-style" for="phone" class="col-sm-2 control-label">Phone</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" name="phone" id="phone" 
+                  placeholder="Enter Phone" required="required">
+            </div>
+         </div>
+            <div class="form-group">
+            <label id = "label-font-style" for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+               <input type="email" class="form-control" name="email" id="email" 
+                  placeholder="Enter Email" required="required">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+               <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+            </div>
+         </div>
+      </form>
+      </div>
+    </div>
+    </div>
+  </div>
+    <!-- Customer Register End -->
   <!-- model code is here -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" id="modal-dialog">
