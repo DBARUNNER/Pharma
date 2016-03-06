@@ -204,7 +204,7 @@
       <section id="main-content">
           <section class="wrapper">
           <div class="navbar navbar-default" id="div-nave"><ul id="navigation">
-              <li><a href="" style="color:#68dff0; font-size:18px;" class="active">Home <span>/</span></a></li>
+              <li><a href="" style="color:black; font-size:18px;" class="active">Home <span>/</span></a></li>
               <li><a href="" class="navigation-tab">Import  <span>/</span></a></li>
               <li><a href="" class="navigation-tab">Sales</a></li>
           </ul></div>

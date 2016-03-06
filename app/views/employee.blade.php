@@ -121,7 +121,7 @@ Sistan Pharma/employee
       <div class="tab-content">
         <div class="tab-pane fade in active" id="register">
           <div class="container">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="border-radius: 0px;">
               <div class="panel-heading" id ="table-panel">
                <i class="fa fa-pencil-square-o"></i> Register New Customer
               </div>
@@ -185,7 +185,8 @@ Sistan Pharma/employee
                  </div>
                  <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                       <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+                       <button type="submit" class="btn btn-primary" style="border-radius: 0px;"><i class="fa fa-pencil-square-o"></i> Register</button>
+                       <button type="submit" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Reset</button>
                     </div>
                  </div>
               </form>
@@ -195,7 +196,7 @@ Sistan Pharma/employee
         </div>
         <div class="tab-pane fade" id="salary">
           <div class="container">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="border-radius: 0px;">
               <div class="panel-heading" id ="table-panel">
                <i class="fa fa-pencil-square-o"></i> Salary Payment
               </div>
@@ -231,7 +232,8 @@ Sistan Pharma/employee
                  </div>
                  <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                       <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Pay</button>
+                        <button type="submit" class="btn btn-success" style="border-radius: 0px;"><i class="fa fa-pencil-square-o"></i> Pay</button>
+                       <button type="submit" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Reset</button>
                     </div>
                  </div>
               </form>
@@ -241,7 +243,7 @@ Sistan Pharma/employee
         </div>
 
         <div class="tab-pane" id="employeeHistory">
-          <div class="panel panel-default filterable">
+          <div class="panel panel-default filterable" style="border-radius: 0px;">
             <div class="panel-heading" id ="table-panel" >
               <h2 class=" text-info panel-title">Agency Sales Info</h2>
               <div class="pull-right btn-group">
@@ -261,12 +263,12 @@ Sistan Pharma/employee
                 <!-- Filter Button End -->
               </div>
             </div>
-            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+            <table class="table table-striped table-hover" id="sample_editable_1">
               <thead>
                 <tr class="filters" id="table-style">
                   <th><input type="text" class="form-control" placeholder="Employee Id" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Name" disabled></th>
-                  <th><input type="date" class="form-control" placeholder="Hire-Date" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Hire-Date" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Edit" disabled></th>
                   <th><input type="text" class="form-control" placeholder="delete" disabled></th>
                 </tr>

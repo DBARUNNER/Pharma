@@ -130,7 +130,7 @@ Sistan Pharma/stock
         <div class="tab-pane fade in active" id="tab1">
           <div class="panel panel-default filterable">
             <div class="panel-heading" id ="table-panel" >
-              <span class="table-panel-heading"><i class = "fa fa-exchange"></i> Stock Info</span>
+               <h2 class="panel-title"> Stock Info </h2>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->
@@ -148,7 +148,7 @@ Sistan Pharma/stock
                 <!-- Filter Button End -->
               </div>
             </div>
-            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+            <table class="table table-striped table-hover" id="sample_editable_1">
               <thead>
                 <tr class="filters">
                   <th><input type="text" class="form-control" placeholder="Medicine id" disabled></th>
@@ -203,7 +203,7 @@ Sistan Pharma/stock
         <div class="tab-pane fade in" id="tab2">
           <div class="panel panel-default filterable">
             <div class="panel-heading" id ="table-panel" >
-              <span class="table-panel-heading"><i class = "fa fa-exchange"></i> Medicine Info</span>
+              <h2 class="panel-title"> Medicine Info</h2>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->

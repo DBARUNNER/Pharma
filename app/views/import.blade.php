@@ -252,7 +252,7 @@ Sistan Pharma
         <h3 class="suplier-header">Suplier Information</h3>
             <hr class="style18">    
     <div class="container">
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="border-radius: 0px;">
       <div class="panel-heading" id ="table-panel">
        <i class="fa fa-pencil-square-o"></i> Register New Supplier
       </div>
@@ -288,7 +288,8 @@ Sistan Pharma
          </div>
          <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-               <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+               <button type="submit" class="btn btn-success" style="border-radius: 0px;"><i class="fa fa-pencil-square-o"></i> Register</button>
+               <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Register</button>
             </div>
          </div>
       </form>

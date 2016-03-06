@@ -127,30 +127,29 @@ Sistan Pharma/Sales
 
       @endif
 <div id="tab-style">
-  <ul id="sales-tab" class="nav nav-tabs" id="ul-tab-style">
-   <li class="active"><a href="#home" data-toggle="tab">
-       Sales to customer <i class="fa fa-chevron-down"></i> </a></li>
-   <li><a href="#agency" data-toggle="tab"> Sales to Agency <i class="fa fa-chevron-down"></i> </a></li>
-   <li><a href="#Chistory" data-toggle="tab"> Customer Sales history <i class="fa fa-chevron-down"></i> </a></li>
-   <li><a href="#Ahistory" data-toggle="tab"> Agency Sales history <i class="fa fa-chevron-down"></i> </a></li>
-  <li class="dropdown">
-    <a href="#" id="myTabDrop1" class="dropdown-toggle" 
-      data-toggle="dropdown">
-     <i class = "fa fa-pencil-square-o"></i> Register New <b class="caret"></b></a>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-         <li><a href="#registerCustomer" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Customer</a></li>
-         <li><a href="#registerAgency" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Agency</a></li>
-      </ul>
-   </li>
+  <ul id="sales-tab" class="nav nav-tabs">
+       <li class="active"><a href="#home" data-toggle="tab">
+           Sales to customer <i class="fa fa-chevron-down"></i> </a></li>
+       <li><a href="#agency" data-toggle="tab"> Sales to Agency <i class="fa fa-chevron-down"></i> </a></li>
+       <li><a href="#Chistory" data-toggle="tab"> Customer Sales history <i class="fa fa-chevron-down"></i> </a></li>
+       <li><a href="#Ahistory" data-toggle="tab"> Agency Sales history <i class="fa fa-chevron-down"></i> </a></li>
+      <li class="dropdown">
+        <a href="#" id="myTabDrop1" class="dropdown-toggle" 
+          data-toggle="dropdown">
+         <i class = "fa fa-pencil-square-o"></i> Register New <b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+             <li><a href="#registerCustomer" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Customer</a></li>
+             <li><a href="#registerAgency" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Agency</a></li>
+          </ul>
+       </li>
 </ul>
 <!-- Tab Start -->
 <div id="myTabContent" class="tab-content">
   <!-- Customer Tab Start -->
   <div class="tab-pane fade in active" id="home">
-  <hr class="style18">
-    <div class="panel panel-default filterable" style="margin:10px;">
+    <div class="panel panel-default filterable" style="margin-top:15px; border-radius: 0px;">
       <div class="panel-heading" id="table-panel" >
-         <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Sales to customer</span>
+         <h2 class="panel-title"><i class="fa fa-bar-chart"></i> Sales to customer</h2>
         <div class="pull-right btn-group">
          <!-- Tools Button Start -->
           <button id="btn-tools" class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i></button>
@@ -167,7 +166,7 @@ Sistan Pharma/Sales
           <!-- Filter Button End -->
         </div>
       </div>
-      <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+      <table class="table table-striped table-hover " id="sample_editable_1">
         <thead>
           <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
@@ -200,9 +199,9 @@ Sistan Pharma/Sales
    <!-- Agency Tab Start -->
 
    <div class="tab-pane fade" id="agency">
-    <div class="panel panel-default filterable" style="margin:10px;">
+    <div class="panel panel-default filterable" style="margin-top:15px; border-radius: 0px;">
       <div class="panel-heading" id="table-panel" >
-        <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Sales to Agency</span>
+        <h2 class="panel-title"> Sales to Agency</h2>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -220,7 +219,7 @@ Sistan Pharma/Sales
           <!-- Filter Button End -->
         </div>
       </div>
-      <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+      <table class="table table-striped table-hover" id="sample_editable_1">
         <thead>
           <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
@@ -275,9 +274,9 @@ Sistan Pharma/Sales
    <!-- Customer History Tab Start -->
 
     <div class="tab-pane fade" id="Chistory">
-      <div class="panel panel-default filterable" style="margin:10px;">
+      <div class="panel panel-default filterable" style="margin-top:15px; border-radius: 0px;">
       <div class="panel-heading" id ="table-panel" >
-        <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Customer Sales Info</span>
+        <h2 class="panel-title"> Customer Sales Info</h2>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -295,7 +294,7 @@ Sistan Pharma/Sales
           <!-- Filter Button End -->
         </div>
       </div>
-      <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+      <table class="table table-striped table-hover" id="sample_editable_1">
         <thead>
           <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
@@ -370,9 +369,9 @@ Sistan Pharma/Sales
 
    <!-- Agency History Start -->
       <div class="tab-pane fade" id="Ahistory">
-      <div class="panel panel-default filterable" style="margin:10px;">
+      <div class="panel panel-default filterable" style="margin-top:10px; border-radius: 0px;">
       <div class="panel-heading" id ="table-panel" >
-        <span class="table-panel-heading"><i class = "fa fa-bar-chart-o"></i> Agency Sales Info</span>
+        <h1 class="panel-title"> Agency Sales Info</h1>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -390,7 +389,7 @@ Sistan Pharma/Sales
           <!-- Filter Button End -->
         </div>
       </div>
-      <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+      <table class="table table-striped table-hover" id="sample_editable_1">
         <thead>
           <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
@@ -466,7 +465,7 @@ Sistan Pharma/Sales
    <!-- Register Customer -->
   <div class="tab-pane fade" id="registerCustomer"> 
     <div class="container">
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="margin-top: 10px; border-radius: 0px;">
       <div class="panel-heading" id ="table-panel">
        <i class="fa fa-pencil-square-o"></i> Register New Customer
       </div>
@@ -502,7 +501,8 @@ Sistan Pharma/Sales
          </div>
          <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-               <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+                <button type="submit" class="btn btn-success" style="border-radius: 0px;"><i class="fa fa-pencil-square-o"></i> Register</button>
+               <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Register</button>
             </div>
          </div>
       </form>
@@ -513,10 +513,10 @@ Sistan Pharma/Sales
     <!-- Customer Register End -->
 
 
-   <!-- Register Customer -->
+   <!-- Register Agency -->
   <div class="tab-pane fade" id="registerAgency">
     <div class="container">
-    <div class="panel panel-default" style="margin:5px;">
+    <div class="panel panel-default" style="margin:10px; border-radius: 0px;">
       <div class="panel-heading" id ="table-panel">
        <i class="fa fa-pencil-square-o"></i> Register New Agency
       </div>
@@ -552,7 +552,8 @@ Sistan Pharma/Sales
          </div>
          <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-               <button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Register</button>
+                <button type="submit" class="btn btn-success" style="border-radius: 0px;"><i class="fa fa-pencil-square-o"></i> Register</button>
+               <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Register</button>
             </div>
          </div>
       </form>
@@ -560,7 +561,8 @@ Sistan Pharma/Sales
     </div>
     </div>
   </div>
-    <!-- Customer Register End -->
+    <!-- Agency Register End -->
+
   <!-- model code is here -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" id="modal-dialog">

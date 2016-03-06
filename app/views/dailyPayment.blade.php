@@ -139,8 +139,8 @@ Sistan Pharma/dailyPayment
     <div class="well">
       <div class="tab-content">
         <div class="tab-pane fade in active" id="tab1">
-            <div class="panel panel-default">
-              <div class="panel-heading" id ="table-panel">
+            <div class="panel panel-primary" style="border-radius: 0px;">
+              <div class="panel-heading">
                <i class="fa fa-pencil-square-o"></i> Add Daily Expense
               </div>
               <div class="panel-body">
@@ -148,14 +148,14 @@ Sistan Pharma/dailyPayment
                  <div class="form-group">
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Description</label>
                     <div class="col-sm-10">
-                       <textarea class="form-control" rows="3"></textarea>
+                       <textarea class="form-control" rows="3" placeholder="Description..."></textarea>
                     </div>
                  </div>
                  <div class="form-group">
                     <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Price</label>
                     <div class="col-sm-10">
                        <input type="text" class="form-control" id="lastname" 
-                          placeholder="Enter Price">
+                          placeholder="Cost...">
                     </div>
                  </div>
                   <div class="form-group">
@@ -167,7 +167,8 @@ Sistan Pharma/dailyPayment
                  </div>
                  <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                       <button type="submit" class="btn btn-default"><i class="fa fa-save"></i> Save</button>
+                        <button type="submit" class="btn btn-success" style="border-radius: 0px;"><i class="fa fa-save"></i> Save</button>
+                       <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Reset</button>
                     </div>
                  </div>
               </form>
@@ -198,7 +199,7 @@ Sistan Pharma/dailyPayment
                 <!-- Filter Button End -->
               </div>
             </div>
-            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+            <table class="table table-striped table-hover" id="sample_editable_1">
               <thead>
                 <tr class="filters">
                   <th><input type="text" class="form-control" placeholder="No" disabled></th>

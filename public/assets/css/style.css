@@ -2278,7 +2278,7 @@ ul#nav-accordion i {
 }
 #div-nave {
     padding-top: 12px;
-    background-color: #cef3f5; 
+    background-color: #68dff0; 
     margin-bottom: 0px; 
 }
 #navigation li a {
@@ -2544,6 +2544,9 @@ hr.style18 {
     margin-right: 40px;
 }
 
+#sales-tab {
+    padding: 20px;
+}
 
 /* Sales Page Style End */
 
