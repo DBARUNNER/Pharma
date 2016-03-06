@@ -223,6 +223,42 @@ Route::group(array('before' => 'csrf'), function() {
 		));
 
 
+	/*
+	| IMPORT AJAX ROUTE 
+	*/ 
+
+	Route::post('setSuplierName',array(
+		'as' 	=> 'set-suplier-name-ajax',
+		'uses'	=> 'importController@setSuplierName'
+		));
+
+	/*=============================================================
+	| SALES PAGE ROUTE 
+	*==============================================================*/
+	
+	Route::post('registerCustomer',array(
+		'as'	=> 'register-customer-post',
+		'uses'	=> 'salesController@registerCustomerPost'
+		));
+
+	/*
+	| SALES AJAX ROUTE 
+	*/ 
+
+	Route::post('salesToCustomer',array(
+		'as'	=> 'sales-to-customer-ajax',
+		'uses'	=> 'salesController@salesToCustomer'
+
+		));
+
+	// Retrieve date 
+	Route::post('retrieveDate',array(
+		'as'	=> 'retrieve-date-ajax',
+		'uses'	=> 'salesController@retrieveDate'
+		));
+
+
+
 
 
 // });	

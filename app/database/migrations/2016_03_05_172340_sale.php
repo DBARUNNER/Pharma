@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Medicin extends Migration {
+class Sale extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,9 @@ class Medicin extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('medicin', function(Blueprint $table)
+		Schema::create('sales', function(Blueprint $table)
 		{
 			$table->string('barcode');
-			$table->primary('barcode');
 			$table->string('generic_name');
 			$table->integer('price');
 			$table->integer('total_price');
@@ -26,10 +25,15 @@ class Medicin extends Migration {
 			$table->date('expire_date');
 			$table->string('status');
 			$table->integer('bill_id')->unsigned();
+			$table->primary(['barcode','bill_id']);
 			$table->foreign('bill_id')
 					->references('id')
 					->on('bill');
+			$table->foreign('barcode')
+					->references('barcode')
+					->on('medicin');
 			$table->timestamps();
+
 		});
 	}
 
@@ -40,7 +44,7 @@ class Medicin extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('medicin');
+		Schema::drop('sales');
 	}
 
 }

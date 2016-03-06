@@ -438,7 +438,7 @@ Sistan Pharma
         <div class="container-fliud">
           <div class="row">
             <div class="col-sm-12">
-              <legend>Name of suplier</legend>
+              <legend >Suplier Name:<span id="suplier-name" style="font-size: 1.5em;color: red;"></span></legend>
             </div>
             <!-- panel preview -->
             <div class="col-sm-4">

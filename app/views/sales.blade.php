@@ -108,6 +108,24 @@ Sistan Pharma/Sales
 
 
 @section('content')
+
+     @if(Session::has('error'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-danger" id="error-message">
+                    <strong style="font-size: 20px;">Error !</strong><span style="font-size: 13px;"> {{ Session::get('error') }} </span>
+                </div>
+            </div>
+
+      @endif
+
+      @if(Session::has('success'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-success" id="error-message">
+                    <strong style="font-size: 20px;">Info !</strong><span style="font-size: 13px;"> {{ Session::get('success') }} </span>
+                </div>
+            </div>
+
+      @endif
 <div id="tab-style">
   <ul id="sales-tab" class="nav nav-tabs" id="ul-tab-style">
    <li class="active"><a href="#home" data-toggle="tab">
@@ -148,38 +166,23 @@ Sistan Pharma/Sales
             <th><input type="text" class="form-control" placeholder="Customer Name" disabled></th>
             <th><input type="text" class="form-control" placeholder="Address" disabled></th>
             <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Sale" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Email" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Sales" disabled></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>alex</td>
-            <td>Alex Nilson</td>
-            <td><a class="edit" href="#">1234 </a> </td>
-            <td class="center">power user </td>
-            <td class="center"><a class="md-trigger import" data-toggle="modal" data-target="#myModal" > Sale </a></td>
-          </tr>
-          <tr>
-            <td>lisa</td>
-            <td>Lisa Wong </td>
-            <td>434</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-          </tr>
-          <tr>
-            <td>nick12 </td>
-            <td>Nick Roberts</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-          </tr>
-          <tr>
-            <td>goldweb</td>
-            <td>Sergio Jackson</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-          </tr>
+          @foreach($customers as $customer)
+
+            <tr>
+              <td>{{ $customer->id }}</td>
+              <td>{{ $customer->name }}</td>
+              <td>{{ $customer->address }}</td>
+              <td>{{ $customer->phone }}</td>
+              <td>{{ $customer->email }}</td>
+
+          <td class="center"><a onclick="setId({{ $customer->id }})" class="md-trigger import" data-toggle="modal" data-target="#myModal" > Sale </a></td></td>
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -464,33 +467,33 @@ Sistan Pharma/Sales
        <i class="fa fa-pencil-square-o"></i> Register New Customer
       </div>
       <div class="panel-body">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" method="POST" action="{{ URL::route('register-customer-post')}}">
          <div class="form-group">
             <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Customer Name</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="firstname" 
-                  placeholder="Enter First Name">
+               <input type="text" class="form-control" name="firstName" id="firstname" 
+                  placeholder="Enter First Name" required="required">
             </div>
          </div>
          <div class="form-group">
-            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Address</label>
+            <label id = "label-font-style" for="address" class="col-sm-2 control-label">Address</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="lastname" 
-                  placeholder="Enter Address">
+               <input type="text" class="form-control" name="address" id="address" 
+                  placeholder="Enter Address" required="required">
             </div>
          </div>
           <div class="form-group">
-            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Phone</label>
+            <label id = "label-font-style" for="phone" class="col-sm-2 control-label">Phone</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="lastname" 
-                  placeholder="Enter Phone">
+               <input type="text" class="form-control" name="phone" id="phone" 
+                  placeholder="Enter Phone" required="required">
             </div>
          </div>
             <div class="form-group">
-            <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Email</label>
+            <label id = "label-font-style" for="email" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control" id="lastname" 
-                  placeholder="Enter Email">
+               <input type="email" class="form-control" name="email" id="email" 
+                  placeholder="Enter Email" required="required">
             </div>
          </div>
          <div class="form-group">
@@ -505,167 +508,144 @@ Sistan Pharma/Sales
   </div>
     <!-- Customer Register End -->
 
-    <!-- Sales Modal Start -->
+  <!-- model code is here -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" id="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title" id="myModalLabel">Sales Bill To Customer</h4>
-        </div>
-        <div class="modal-body">
+  <div class="modal-dialog" id="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Sales To Customer Bill</h4>
+      </div>
+      <div class="modal-body">
         <!-- Start of BILL form  -->
-          <div class="container-fliud">
-            <div class="row">
-              <div class="col-sm-12">
-                <legend>Name of Customer</legend>
-              </div>
-              <!-- panel preview -->
-              <div class="col-sm-4">
-                <h4>Insert your Material</h4>
-                  <div class="panel panel-default">
-                    <div class="panel-body form-horizontal payment-form">
-                      <div class="form-group">
-                        <label for="name" class="col-sm-3 control-label"> Item Name</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="name" name="name">
-                        </div>
-                      </div>        
-                      <div class="form-group">
-                        <label for="amount" class="col-sm-3 control-label">Quantity</label>
-                        <div class="col-sm-9">
-                          <input type="number" class="form-control" id="amount" name="amount">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="price" class="col-sm-3 control-label">Price</label>
-                        <div class="col-sm-9">
-                          <input type="text" onblur="total();" class="form-control" id="price" name="price">
-                        </div>
-                      </div>
-                      <div class="form-group" style="display: none;">
-                        <label for="Tatal Price" class="col-sm-3 control-label">Total Price</label>
-                        <div class="col-sm-9">
-                          <input type="number" class="form-control" id="totalPrice" name="TotalPrice">
-                        </div>
-                      </div>  
-                      <div class="form-group">
-                        <label for="status" class="col-sm-3 control-label">Status</label>
-                        <div class="col-sm-9">
-                          <select class="form-control" id="status" name="status">
-                            <option>Paid</option>
-                            <option>Unpaid</option>
-                          </select>
-                        </div>
-                      </div> 
-                      <div class="form-group">
-                        <div class="col-sm-12 text-right">
-                          <button type="button" class="btn btn-default preview-add-button">
-                            <span class="glyphicon glyphicon-plus"></span> Add
-                          </button>
-                        </div>
-                      </div>
+        <div class="container-fliud">
+          <div class="row">
+            <div class="col-sm-12">
+              <legend >Suplier Name:<span id="suplier-name" style="font-size: 1.5em;color: red;"></span></legend>
+            </div>
+            <!-- panel preview -->
+            <div class="col-sm-4">
+              <h4>Insert your Material</h4>
+              <div class="panel panel-default">
+                <div class="panel-body form-horizontal payment-form">
+                <div id="sales-content-bill">
+                  <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Genric Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="name" name="name">
                     </div>
-                  </div>            
-                </div> <!-- / panel preview -->
-                <div class="col-sm-8">
-                  <h4>Preview:</h4>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <div class="table-responsive">
-                        <table class="table preview-table">
-                          <thead>
-                            <tr>
-                              <th>Name</th>
-                              <th>Quantity</th>
-                              <th>Chash</th>
-                              <th>Balance</th>
-                              <th>Price</th>
-                              <th>Total Price</th>
-                            </tr>
-                          </thead>
-                        <tbody></tbody> <!-- preview content goes here-->
-                      </table>
-                    </div>                            
                   </div>
+                  <div class="form-group">
+                    <label for="madIn" class="col-sm-3 control-label">Made in</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="madIn" name="madeIn">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="weight" class="col-sm-3 control-label">Weight</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="weight" name="weight" >
+                    </div>
+                  </div>         
+                  <div class="form-group">
+                    <label for="amount" class="col-sm-3 control-label">Quantity</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" id="amount" name="amount">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="price" class="col-sm-3 control-label">Price</label>
+                    <div class="col-sm-9">
+                      <input type="number" onblur="total();" class="form-control" id="price" name="price">
+                    </div>
+                  </div>
+                  <div class="form-group" style="display: none;">
+                    <label for="Tatal Price" class="col-sm-3 control-label">Total Price</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" id="totalPrice" name="TotalPrice">
+                    </div>
+                  </div>  
+                  <div class="form-group">
+                    <label for="date" class="col-sm-3 control-label">Product Date</label>
+                    <div class="col-sm-9">
+                      <input type="date" class="form-control" id="productDate" name="product_date">
+                    </div>
+                  </div> 
+                  <div class="form-group">
+                    <label for="date" class="col-sm-3 control-label">Expire Date</label>
+                    <div class="col-sm-9">
+                      <input type="date" class="form-control" id="expireDate" name="expire_date">
+                    </div>
+                  </div>  
+                  <div class="form-group">
+                    <label for="status" class="col-sm-3 control-label">Status</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" id="status" name="status">
+                        <option>Paid</option>
+                        <option>Unpaid</option>
+                      </select>
+                    </div>
+                  </div> 
                 </div>
-                <div class="row">
-                  <div class="col-xs-3" style="margin-top: 11px;">
-                    <h4 class="paid-header">Total:</h4> <input class="preview-total" id="bill-total"> </input>
+                  <div class="form-group">
+                   <label for="label" class="col-sm-3 control-label">Label</label>
+                    <div class="col-sm-3">
+                      <input type="text" onblur="retriveValue();" class="form-control" id="label" name="label">
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <button type="button" class="btn btn-default preview-add-button">
+                        <span class="glyphicon glyphicon-plus"></span> Add
+                      </button>
+                    </div>
+                    
                   </div>
-                  <div class="col-xs-3" style="margin-top: 11px;">
-                    <h4 class="paid-header">Paid:</h4><input onblur="loan();" type="text" placeholder="Insert Paid" class="paid-input"></input>
-                  </div>
-                  <div class="col-xs-3" style="margin-top: 11px;">
-                    <h4 class="loan-header">Loan:</h4> <input type="text" placeholder="Insert Loan" class="loan-input"></input>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">
-                    <hr style="border:1px dashed #dddddd;">
-                    <button type="button" class="btn btn-primary btn-block">Submit all and finish</button>
-                  </div>                
-                </div>
+              </div>
+            </div>            
+          </div> <!-- / panel preview -->
+          <div class="col-sm-8">
+            <h4>Preview:</h4>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="table-responsive">
+                  <table class="table preview-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Made In</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Product Date</th>
+                        <th>Expire Date</th>
+                        <th>Price</th>
+                        <th>Total Price</th>
+                      </tr>
+                    </thead>
+                    <tbody id="import-table"></tbody> <!-- preview content goes here-->
+                  </table>
+                </div>                            
               </div>
             </div>
-          </div>
-          <!-- End of BILL form  -->
-        </div>   
-      </div>
-    </div>
-      <!-- Sales Modal End -->
-  </div>
-</div>
-<!-- End Tab -->
-
-<!-- Invice Model Start -->
-      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="import-material" class="modal fade">
-      <div class="modal-dialog" id="materila-import">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Material Information </h4>
-          </div>
-          <div class="modal-body">
-           <!-- Material table -->
-              <div class="widget stacked widget-table action-table">
-          <!--   
-        <div class="widget-header">
-          <i class="icon-th-list"></i>
-          <h3>Table</h3>
-        </div>  -->
-        
-        <div class="widget-content">
-          
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                  <th>Invoice No</th>
-                  <th>Medicine Name</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                  <th>Total Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-              </tbody>
-            </table>
-          
-        </div> <!-- /widget-content -->
-      
-      </div> <!-- /widget -->
-
-
-           <!-- End of material table -->
-          </div>
-              <div class="modal-footer">
-                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                <button class="btn btn-theme" type="submit">Submit</button>
+            <div class="row">
+              <div class="col-xs-3" style="margin-top: 11px;">
+                <h4 class="paid-header">Total:</h4> <input class="preview-total" id="bill-total"> </input>
               </div>
+              <div class="col-xs-4" style="margin-top: 11px;">
+                <h4 class="paid-header">Paid:</h4><input onblur="loan();" type="text" placeholder="Insert Paid" class="paid-input" id="paid-input"></input>
+              </div>
+              <div class="col-xs-4" style="margin-top: 11px;">
+                <h4 class="loan-header">Loan:</h4> <input type="text" placeholder="Insert Loan" class="loan-input" id="loan-input"></input>
+              </div>
+              <input id="suplier_id" style="display: none;"></input>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <hr style="border:1px dashed #dddddd;">
+                <button type="button" class="btn btn-primary btn-block" id="submit-table" onclick="sell_to_customer();">Submit all and finish</button>
+              </div>                
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-<!-- Invice Model End -->
+        <!-- End of BILL form  -->
 
 @stop

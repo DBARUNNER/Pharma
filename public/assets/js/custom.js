@@ -6,7 +6,6 @@ $('a[title]').tooltip();
 
 // Table Script
 
-
 /*
 Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !
 */
@@ -180,11 +179,59 @@ function import_from_suplier() {
 
 }
 
+    
+
+    /*
+    |SALES TO CUSTOMER BILL 
+    */ 
+
+
+// Submit Table Data 
+function sell_to_customer() {
+    var cell = $('.input-name,.input-madeIn,.input-amount,.input-status,.input-product_date,.input-exp_date,.input-price,.input-weight,.input-label,.input-totalPrice');
+    var i = 0;
+    var data = new Array();
+    while(cell[i] != undefined) {
+        data[i] = cell[i].innerHTML;
+        i++;
+    }
+
+    var paid = document.getElementById('paid-input').value;
+    var loan = document.getElementById('loan-input').value;
+    var total = document.getElementById('bill-total').value;
+    var person_id = document.getElementById('suplier_id').value;
+    $(document).ready(function(){
+        
+    $.post("salesToCustomer",
+    {
+      material:data,
+      pay:paid,
+      remain:loan,
+      all:total,
+      suplier_id: person_id 
+      
+    },
+    function(data,status){
+      alert(data);
+    });
+});
+
+}
 
 
     // set person id in the div 
     function setId(id) {
         document.getElementById('suplier_id').value = id;
+    $(document).ready(function(){    
+    $.post("setSuplierName",
+    {
+       id:id
+    },
+    function(data,status){
+      document.getElementById('suplier-name').innerHTML = data;
+    });
+});
+
     }
 
 // show Import History content 
@@ -197,7 +244,7 @@ $(document).ready(function(){
 });
 
 
-// 
+// show import material base on bill id 
 function seeImportMaterial(id){
 
 $(document).ready(function(){
@@ -212,4 +259,30 @@ $(document).ready(function(){
 });
 
 }
+
+
+
+        /*
+        | RETRIEVE DATE FROM ON BLURE 
+        */ 
+
+        function retriveValue() {
+            var batchNumber = document.getElementById('label').value;
+            
+
+
+            $(document).ready(function(){
+        
+            $.post("retrieveDate",
+            {
+               batchNumber:batchNumber
+            },
+            function(data,status){
+                document.getElementById('sales-content-bill').innerHTML = data;
+            });
+        });
+
+
+        }
+
 

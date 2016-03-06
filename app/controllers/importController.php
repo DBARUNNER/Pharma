@@ -179,5 +179,16 @@
 			return $x; 
 		}
 
+
+		/*
+		| SET SUPLIER NAME AJAX 
+		*/ 
+
+		public function setSuplierName() {
+			$id = Input::get('id');
+			$supliernName = person::where('id',$id)->pluck('name');
+			return $supliernName;
+		}
+
 	}
 ?>

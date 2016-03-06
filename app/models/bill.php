@@ -17,6 +17,10 @@
 			return $this->hasMany('medicin');
 		}
 
+		public function sales() {
+			return $this->hasMany('sale');
+		}
+
 	}
 
 ?>

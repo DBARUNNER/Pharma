@@ -15,8 +15,8 @@
     <link href="{{ URL::asset('assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/zabuto_calendar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/js/gritter/css/jquery.gritter.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/lineicons/style.css') }}">  
-
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/lineicons/style.css') }}">
+    
     @yield('import-style')  
     
     <!-- Custom styles for this template -->
@@ -280,7 +280,9 @@
     
     <script type="text/javascript" src="{{ URL::asset('assets/js/gritter/js/jquery.gritter.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets/js/gritter-conf.js') }}"></script>
+   
     <script type="text/javascript" src="{{ URL::asset('assets/js/custom.js') }}"></script>
+    
     @yield('script')  
   
 
