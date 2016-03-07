@@ -2529,7 +2529,7 @@ hr.style18 {
 /* Sales Page Style */
 
 #table-panel {
-    background-color:#fff;
+    background-color:#424A5D;
 }
 
 .table-panel-heading {
@@ -2537,9 +2537,11 @@ hr.style18 {
     font-size: 24px;
 }
 
+
 /* Btn Tools */
 #btn-tools {
-    background-color:#fff;
+    color: #fff;
+    background-color:#424A5D;
     padding-top: 2px;
     margin-right: 40px;
 }

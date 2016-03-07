@@ -253,7 +253,7 @@ Sistan Pharma
             <hr class="style18">    
     <div class="container">
     <div class="panel panel-default" style="border-radius: 0px;">
-      <div class="panel-heading" id ="table-panel">
+      <div class="panel-heading"style="background-color: #fff;">
        <i class="fa fa-pencil-square-o"></i> Register New Supplier
       </div>
       <div class="panel-body">

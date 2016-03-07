@@ -147,9 +147,9 @@ Sistan Pharma/Sales
 <div id="myTabContent" class="tab-content">
   <!-- Customer Tab Start -->
   <div class="tab-pane fade in active" id="home">
-    <div class="panel panel-default filterable" style="margin-top:15px; border-radius: 0px;">
+    <div class="panel panel-default filterable" style=" border-radius: 0px;">
       <div class="panel-heading" id="table-panel" >
-         <h2 class="panel-title"><i class="fa fa-bar-chart"></i> Sales to customer</h2>
+         <h2 class="panel-title" style="color:white;"> Sales to customer</h2>
         <div class="pull-right btn-group">
          <!-- Tools Button Start -->
           <button id="btn-tools" class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i></button>
@@ -201,7 +201,7 @@ Sistan Pharma/Sales
    <div class="tab-pane fade" id="agency">
     <div class="panel panel-default filterable" style="margin-top:15px; border-radius: 0px;">
       <div class="panel-heading" id="table-panel" >
-        <h2 class="panel-title"> Sales to Agency</h2>
+        <h2 class="panel-title" style="color:white;"> Sales to Agency</h2>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -276,7 +276,7 @@ Sistan Pharma/Sales
     <div class="tab-pane fade" id="Chistory">
       <div class="panel panel-default filterable" style="margin-top:15px; border-radius: 0px;">
       <div class="panel-heading" id ="table-panel" >
-        <h2 class="panel-title"> Customer Sales Info</h2>
+        <h2 class="panel-title" style="color:white;"> Customer Sales Info</h2>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -299,7 +299,6 @@ Sistan Pharma/Sales
           <tr class="filters" id="table-style">
             <th><input type="text" class="form-control" placeholder="id" disabled></th>
             <th><input type="text" class="form-control" placeholder="Customer Name" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Invoice Number" disabled></th>
             <th><input type="text" class="form-control" placeholder="Address" disabled></th>
             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
             <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
@@ -312,8 +311,7 @@ Sistan Pharma/Sales
         <tbody>
           <tr>
             <td>alex</td>
-            <td>Alex Nilson</td>
-            <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material">1234 </a> </td>
+            <td><a data-toggle="modal" data-target="#Customer_Modal">Ahmad</a></td>
             <td class="center">power user </td>
             <td class="center">power user </td>
             <td class="center">power user </td>
@@ -335,7 +333,6 @@ Sistan Pharma/Sales
             <td class="center">power user </td>
             <td class="center">power user </td>
             <td class="center">power user </td>
-            <td class="center">power user </td>
             <td class="center">Power user </td>
           </tr>
           <tr>
@@ -347,7 +344,6 @@ Sistan Pharma/Sales
             <td class="center">power user </td>
             <td>232</td> 
             <td class="center">power user</td>
-            <td class="center">Power user </td>
           </tr>
           <tr>
             <td>goldweb</td>
@@ -358,7 +354,6 @@ Sistan Pharma/Sales
             <td class="center">power user </td>
             <td> 132</td> 
             <td class="center"> elite user</td>
-            <td class="center">Power user </td>
 
           </tr>
         </tbody>
@@ -371,7 +366,7 @@ Sistan Pharma/Sales
       <div class="tab-pane fade" id="Ahistory">
       <div class="panel panel-default filterable" style="margin-top:10px; border-radius: 0px;">
       <div class="panel-heading" id ="table-panel" >
-        <h1 class="panel-title"> Agency Sales Info</h1>
+        <h1 class="panel-title" style="color:white;"> Agency Sales Info</h1>
         <div class="pull-right btn-group">
 
          <!-- Tools Button Start -->
@@ -466,7 +461,7 @@ Sistan Pharma/Sales
   <div class="tab-pane fade" id="registerCustomer"> 
     <div class="container">
     <div class="panel panel-default" style="margin-top: 10px; border-radius: 0px;">
-      <div class="panel-heading" id ="table-panel">
+      <div class="panel-heading" style="background-color: #fff;">
        <i class="fa fa-pencil-square-o"></i> Register New Customer
       </div>
       <div class="panel-body">
@@ -515,51 +510,28 @@ Sistan Pharma/Sales
 
    <!-- Register Agency -->
   <div class="tab-pane fade" id="registerAgency">
-    <div class="container">
-    <div class="panel panel-default" style="margin:10px; border-radius: 0px;">
-      <div class="panel-heading" id ="table-panel">
-       <i class="fa fa-pencil-square-o"></i> Register New Agency
-      </div>
-      <div class="panel-body">
-        <form class="form-horizontal" role="form" method="POST" action="{{ URL::route('register-customer-post')}}">
-         <div class="form-group">
-            <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Agency Name</label>
-            <div class="col-sm-10">
-               <input type="text" class="form-control" name="firstName" id="firstname" 
-                  placeholder="Enter First Name" required="required">
+                <div class="panel panel-default filterable">
+              <div class="panel-heading">
+                <h1 class="panel-title">Suplier Information</h1>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                </div>
+              </div>
+              <table class="table table-hover table-bord">
+                <thead>
+                  <tr class="filters">
+                    <th><input type="text" class="form-control" placeholder="#" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="First Name" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Address" disabled></th>        
+                    <th><input type="text" class="form-control" placeholder="Email" disabled></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
             </div>
-         </div>
-         <div class="form-group">
-            <label id = "label-font-style" for="address" class="col-sm-2 control-label">Address</label>
-            <div class="col-sm-10">
-               <input type="text" class="form-control" name="address" id="address" 
-                  placeholder="Enter Address" required="required">
-            </div>
-         </div>
-          <div class="form-group">
-            <label id = "label-font-style" for="phone" class="col-sm-2 control-label">Phone</label>
-            <div class="col-sm-10">
-               <input type="text" class="form-control" name="phone" id="phone" 
-                  placeholder="Enter Phone" required="required">
-            </div>
-         </div>
-            <div class="form-group">
-            <label id = "label-font-style" for="email" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-               <input type="email" class="form-control" name="email" id="email" 
-                  placeholder="Enter Email" required="required">
-            </div>
-         </div>
-         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success" style="border-radius: 0px;"><i class="fa fa-pencil-square-o"></i> Register</button>
-               <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Register</button>
-            </div>
-         </div>
-      </form>
-      </div>
-    </div>
-    </div>
   </div>
     <!-- Agency Register End -->
 
@@ -648,11 +620,10 @@ Sistan Pharma/Sales
                       <input type="text" onblur="retriveValue();" class="form-control" id="label" name="label">
                     </div>
                     <div class="col-sm-6 text-right">
-                      <button type="button" class="btn btn-default preview-add-button">
+                      <button type="button" class="btn btn-success preview-add-button" style="border-radius: 0px;">
                         <span class="glyphicon glyphicon-plus"></span> Add
                       </button>
-                    </div>
-                    
+                    </div>                   
                   </div>
               </div>
             </div>            
@@ -702,5 +673,52 @@ Sistan Pharma/Sales
         </div>
       </div>
         <!-- End of BILL form  -->
+
+
+    <!-- Customer Complete Information Modal Start -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="Customer_Modal" class="modal fade">
+      <div class="modal-dialog" id="materila-import">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Material Information </h4>
+          </div>
+          <div class="modal-body">
+           <!-- Material table -->
+            <div class="widget stacked widget-table action-table">
+        
+        <div class="widget-content">
+          
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                  <th>Invoice number</th>
+                  <th></th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Product Date</th>
+                  <th>Expire Date</th>
+                  <th>Price</th>
+                  <th>Label</th>
+                  <th>Weight</th>
+
+              </tr>
+            </thead>
+            <tbody id="import-material-body">
+            
+            </tbody>
+          </table>
+        </div> <!-- /widget-content -->
+      </div> <!-- /widget -->
+      <!-- End of material table -->
+      </div>
+        <div class="modal-footer">
+          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+          <button class="btn btn-theme" type="submit">Submit</button>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- Material Model  -->
 
 @stop
