@@ -108,6 +108,24 @@ Sistan Pharma/employee
 
 
 @section('content')
+
+     @if(Session::has('error'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-danger" id="error-message">
+                    <strong style="font-size: 20px;">Error !</strong><span style="font-size: 13px;"> {{ Session::get('error') }} </span>
+                </div>
+            </div>
+
+      @endif
+
+      @if(Session::has('success'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-success" id="error-message">
+                    <strong style="font-size: 20px;">Info !</strong><span style="font-size: 13px;"> {{ Session::get('success') }} </span>
+                </div>
+            </div>
+
+      @endif
   <div class="panel panel-primary  panel-green">
     <div class="panel-heading">
       <h3 class="panel-title">&nbsp</h3>
@@ -120,73 +138,107 @@ Sistan Pharma/employee
     <div class="panel-body">
       <div class="tab-content">
         <div class="tab-pane fade in active" id="register">
-          <div class="container">
+          <div class="container" style="width: 100%;">
             <div class="panel panel-default" style="border-radius: 0px;">
               <div class="panel-heading" id ="table-panel">
                <i class="fa fa-pencil-square-o"></i> Register New Customer
               </div>
               <div class="panel-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" method="post" action="{{ URL::route('retister-employee-post')}}" enctype="multipart/form-data">
                  <div class="form-group">
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Employee Name</label>
                     <div class="col-sm-10">
-                       <input type="text" class="form-control" id="firstname" 
-                          placeholder="Enter First Name">
+                       <input type="text" class="form-control" name="name" id="firstname" 
+                          placeholder="Enter First Name" required="required">
+                          @if($errors->has('name'))
+                        <span style="color:red;">{{ $errors->first('name') }}</span>
+                         @endif
                     </div>
                  </div>
                   <div class="form-group">
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Father Name</label>
                     <div class="col-sm-10">
-                       <input type="text" class="form-control" id="firstname" 
-                          placeholder="Enter Father Name">
+                       <input type="text" class="form-control" name="fatherName" id="firstname" 
+                          placeholder="Enter Father Name" required="required">
+                @if($errors->has('fatherName'))
+                <span style="color:red;">{{ $errors->first('fatherName') }}</span>
+                @endif
                     </div>
                  </div>
                   <div class="form-group">
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Tazkera No</label>
                     <div class="col-sm-10">
-                       <input type="text" class="form-control" id="firstname" 
-                          placeholder="Enter Tazkera Name">
+                       <input type="number" class="form-control" name="tazkiraNumber" id="firstname" 
+                          placeholder="Enter Tazkera Name" required="required">
+                @if($errors->has('tazkiraNumber'))
+                <span style="color:red;">{{ $errors->first('tazkiraNumber') }}</span>
+                @endif   
                     </div>
                  </div>
                  <div class="form-group">
                     <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Address</label>
                     <div class="col-sm-10">
-                       <input type="text" class="form-control" id="lastname" 
-                          placeholder="Enter Address">
+                       <input type="text" class="form-control" name="address" id="lastname" 
+                          placeholder="Enter Address" required="required">
+                @if($errors->has('address'))
+                <span style="color:red;">{{ $errors->first('address') }}</span>
+                @endif
                     </div>
                  </div>
                 <div class="form-group">
                     <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Phone Number</label>
                     <div class="col-sm-10">
-                       <input type="text" class="form-control" id="lastname" 
-                          placeholder="Enter Phone">
+                       <input type="number" class="form-control" name="phone" id="lastname" 
+                          placeholder="Enter Phone" required="required">
+                @if($errors->has('phone'))
+                <span style="color:red;">{{ $errors->first('phone') }}</span>
+                @endif
                     </div>
                  </div>
                   <div class="form-group">
                     <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Email Address</label>
                     <div class="col-sm-10">
-                       <input type="text" class="form-control" id="lastname" 
-                          placeholder="Enter Email">
+                       <input type="email" class="form-control" name="email" id="lastname" 
+                          placeholder="Enter Email" required="required">
+                @if($errors->has('email'))
+                <span style="color:red;">{{ $errors->first('email') }}</span>
+                @endif
                     </div>
                  </div>
                   <div class="form-group">
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Photo</label>
                     <div class="col-sm-10">
-                       <input type="text" class="form-control" id="firstname" 
-                          placeholder="Select Photo ">
+                       <input type="file" class="form-control" name="photo" id="firstname" 
+                          placeholder="Select Photo " required="required">
+                @if($errors->has('photo'))
+                <span style="color:red;">{{ $errors->first('photo') }}</span>
+                @endif
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Select type</label>
+                    <div class="col-sm-10">
+                       <select name="type" class="form-control">
+                         <option>Eployee</option>
+                         <option>Agent</option>
+                         <option>Customer</option>
+                       </select>
                     </div>
                  </div>
                   <div class="form-group">
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Hire Date</label>
                     <div class="col-sm-10">
-                       <input type="date" class="form-control" id="firstname" 
-                          placeholder="Enter First Name">
+                       <input type="date" class="form-control" name="hireDate" id="firstname" 
+                          placeholder="Enter First Name" required="required">
+                @if($errors->has('date'))
+                <span style="color:red;">{{ $errors->first('date') }}</span>
+                @endif
                     </div>
                  </div>
                  <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                        <button type="submit" class="btn btn-primary" style="border-radius: 0px;"><i class="fa fa-pencil-square-o"></i> Register</button>
-                       <button type="submit" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Reset</button>
+                       <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Reset</button>
                     </div>
                  </div>
               </form>

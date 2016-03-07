@@ -257,6 +257,23 @@ Route::group(array('before' => 'csrf'), function() {
 		'uses'	=> 'salesController@retrieveDate'
 		));
 
+	// list Agent infromation 
+	Route::get('listAgent',array(
+		'as'	=> 'list-agent-ajax',
+		'uses'	=> 'salesController@listAgent'
+		));
+
+
+
+	/*=============================================================
+	| Employee route is all here 
+	*==============================================================*/
+
+	Route::post('registerEmployee',array(
+		'as'	=> 'retister-employee-post',
+		'uses'	=> 'employeeController@registerEmployee'
+		
+		));
 
 
 

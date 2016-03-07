@@ -169,6 +169,27 @@
                 </div>';
 				
 		}
+
+
+		/*
+		| LIST AGENT BY AJAX COMMANDN 
+		*/ 
+
+		public function listAgent() {
+			$employees = employee::where('type','agent')->get();
+			$x = '';
+			foreach ($employees as $value) {
+				$x .= '<tr>
+							<td>'.$value->id.'</td>
+							<td>'.$value->name.'</td>
+							<td>'.$value->phoneNumber.'</td>
+							<td>'.$value->address.'</td>
+							<td>'.$value->email.'</td>
+							<td><a>Register</a></td>
+						</tr>';	
+			}
+			return $x; 
+		}
 	}
 
 

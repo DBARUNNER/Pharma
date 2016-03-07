@@ -285,4 +285,14 @@ $(document).ready(function(){
 
         }
 
-
+    
+        /*
+        | List all agent infromation AJAX 
+        */ 
+        $(document).ready(function(){
+          $("li#listAgent").click(function(){
+            $.get("listAgent",function(data,status){
+                document.getElementById('agent-table-body').innerHTML = data;
+            });
+          });
+        });
