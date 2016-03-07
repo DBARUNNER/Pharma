@@ -311,7 +311,7 @@ Sistan Pharma/Sales
         <tbody>
           <tr>
             <td>alex</td>
-            <td><a data-toggle="modal" data-target="#Customer_Modal">Ahmad</a></td>
+            <td><a data-toggle="modal" data-target="#CustomerModal">Ahmad</a></td>
             <td class="center">power user </td>
             <td class="center">power user </td>
             <td class="center">power user </td>
@@ -676,49 +676,22 @@ Sistan Pharma/Sales
 
 
     <!-- Customer Complete Information Modal Start -->
-    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="Customer_Modal" class="modal fade">
-      <div class="modal-dialog" id="materila-import">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Material Information </h4>
+      <div class="modal fade" id="CustomerModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>This is a large modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
           </div>
-          <div class="modal-body">
-           <!-- Material table -->
-            <div class="widget stacked widget-table action-table">
-        
-        <div class="widget-content">
-          
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                  <th>Invoice number</th>
-                  <th></th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th>Product Date</th>
-                  <th>Expire Date</th>
-                  <th>Price</th>
-                  <th>Label</th>
-                  <th>Weight</th>
-
-              </tr>
-            </thead>
-            <tbody id="import-material-body">
-            
-            </tbody>
-          </table>
-        </div> <!-- /widget-content -->
-      </div> <!-- /widget -->
-      <!-- End of material table -->
-      </div>
-        <div class="modal-footer">
-          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-          <button class="btn btn-theme" type="submit">Submit</button>
         </div>
       </div>
-      </div>
-    </div>
     <!-- Material Model  -->
 
 @stop
