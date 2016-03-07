@@ -140,7 +140,7 @@ Sistan Pharma/employee
         <div class="tab-pane fade in active" id="register">
           <div class="container" style="width: 100%;">
             <div class="panel panel-default" style="border-radius: 0px;">
-              <div class="panel-heading" id ="table-panel">
+              <div class="panel-heading" style="background-color: #fff;">
                <i class="fa fa-pencil-square-o"></i> Register New Customer
               </div>
               <div class="panel-body">
@@ -249,7 +249,7 @@ Sistan Pharma/employee
         <div class="tab-pane fade" id="salary">
           <div class="container">
             <div class="panel panel-default" style="border-radius: 0px;">
-              <div class="panel-heading" id ="table-panel">
+              <div class="panel-heading" style="background-color: #fff;">
                <i class="fa fa-pencil-square-o"></i> Salary Payment
               </div>
               <div class="panel-body">
