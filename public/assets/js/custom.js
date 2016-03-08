@@ -196,10 +196,11 @@ function sell_to_customer() {
         i++;
     }
 
-    var paid = document.getElementById('paid-input').value;
-    var loan = document.getElementById('loan-input').value;
-    var total = document.getElementById('bill-total').value;
-    var person_id = document.getElementById('suplier_id').value;
+    var paid        = document.getElementById('paid-input').value;
+    var loan        = document.getElementById('loan-input').value;
+    var total       = document.getElementById('bill-total').value;
+    var person_id   = document.getElementById('suplier_id').value;
+    var person_type = document.getElementById('person_type').innerHTML;
     $(document).ready(function(){
         
     $.post("salesToCustomer",
@@ -208,7 +209,8 @@ function sell_to_customer() {
       pay:paid,
       remain:loan,
       all:total,
-      suplier_id: person_id 
+      suplier_id: person_id,
+      person_type:person_type 
       
     },
     function(data,status){
@@ -228,6 +230,8 @@ function sell_to_customer() {
        id:id
     },
     function(data,status){
+      document.getElementById('person-name').innerHTML = "Customer name:";
+      document.getElementById('person_type').innerHTML = "Customer";
       document.getElementById('suplier-name').innerHTML = data;
     });
 });
@@ -296,3 +300,56 @@ $(document).ready(function(){
             });
           });
         });
+
+
+        /*
+        | SET AGENT ID 
+        */ 
+
+        function setAgentId(id) {
+            document.getElementById('id').value = id;
+        }
+
+
+        /*
+        | List Agency on table
+        */ 
+        $(document).ready(function(){
+          $("li#saleAgency").click(function(){
+            $.get("selAgency",function(data,status){
+                document.getElementById('list-agency').innerHTML= data;
+            });
+          });
+        });
+
+        /*
+        | set name of agency
+        */ 
+
+        function setName(id) {
+        document.getElementById('suplier_id').value = id; 
+        $(document).ready(function(){
+        
+            $.post("setAgencyName",
+            {
+               id:id
+            },
+            function(data,status){
+                document.getElementById('person-name').innerHTML = "Agency Name:";
+                document.getElementById('person_type').innerHTML = "Agency";
+                document.getElementById('suplier-name').innerHTML=data;
+            });
+        });
+     }
+
+
+     /*
+     | CUSTOMER SALES HISTORY AJAX CODE 
+     */ 
+     $(document).ready(function(){
+      $("li#customerSaleHistory").click(function(){
+        $.get("salesHistory",function(data,status){
+            document.getElementById('customer-sale-history').innerHTML = data;
+        });
+      });
+    });

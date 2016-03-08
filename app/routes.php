@@ -263,8 +263,29 @@ Route::group(array('before' => 'csrf'), function() {
 		'uses'	=> 'salesController@listAgent'
 		));
 
+	// Register Agency
+	Route::post('registerAgency',array(
+		'as'	=> 'register-agency-post',
+		'uses'	=> 'salesController@registerAgencyPost'
+		)); 
+	// list Agency 
+	Route::get('selAgency',array(
+		'as' 	=> 'list-agency-ajax',
+		'uses'	=> 'salesController@listAgency'
+		));
 
+	// set Agency name
+	Route::post('setAgencyName',array(
+		'as'	=> 'set-agencyName-ajax',
+		'uses'	=> 'salesController@setAgencyName'
+		));
 
+	// CUSTOMER SALLES AGENCY ROUTE 
+	Route::get('salesHistory',array(
+		'as'	=> 'customer-sales-history-ajax',
+		'uses'	=> 'salesController@customerHistory'
+		
+		));
 	/*=============================================================
 	| Employee route is all here 
 	*==============================================================*/

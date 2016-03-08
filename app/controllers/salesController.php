@@ -45,15 +45,21 @@
 		*/ 
 
 		public function salesToCustomer(){
-			
+			// $material 		= array('Siftrakson','Afghanistan','12','paid','2010-10-10','2011-10-10','1000','8 grm','30',)
 			$material 		= Input::get('material');
 			$loan 	  		= Input::get('remain');
 			$paid 	  		= Input::get('pay');
 			$total    		= Input::get('all');
 			$suplier_id 	= Input::get('suplier_id');
 			$date 	  		= date("Y-m-d");
-			$bill_type 		= 'sales';
-
+			$bill_type 		= '';
+			$person_type 	= Input::get('person_type');
+			if($person_type == 'Agency') {
+				$bill_type 		= 'agencySell';
+			}else {
+				$bill_type  	= 'customerSell';
+			}
+			
 			$bill 	  		= new bill;
 			$bill->date 		= $date;
 			$bill->bill_total 	= $total;
@@ -185,10 +191,97 @@
 							<td>'.$value->phoneNumber.'</td>
 							<td>'.$value->address.'</td>
 							<td>'.$value->email.'</td>
-							<td><a>Register</a></td>
+							<td><a onclick="setAgentId('.$value->id.')" class="md-trigger import" data-toggle="modal" data-target="#agencyModal">Register</a></td>
 						</tr>';	
 			}
 			return $x; 
+		}
+
+
+		/*
+		| REGISTER AGENCY SET EMPLOYE ON IT 
+		*/ 
+
+		public function registerAgencyPost() {
+			$name 		= Input::get('name');
+			$phone 		= Input::get('phone');
+			$address 	= Input::get('address');
+			$email 		= Input::get('email');
+			$id 		= Input::get('id');
+
+			$person 				= new person;
+			$person->name 			= $name;
+			$person->person_type	= 'agent';
+			$person->phone 			= $phone;
+			$person->address 		= $address;
+			$person->email 			= $email;
+			$person->employee_id 	= $id;
+
+			if($person->save()) {
+				return Redirect::route('sales-get')
+							->with('success','Agency have been registerd succefully!');
+			}else {
+				return Redirect::route('sales-get')
+							->with('error','Sorry! something is wrong please try again');
+			}
+		}
+
+
+		/*
+		| LIST AGENCY TO SELL 
+		*/ 
+
+		public function listAgency() {
+			$persons 	= person::where('person_type','agent')->get();
+			$x = '';
+			foreach ($persons as $value) {
+				$x .= '<tr>
+							<td>'.$value->id.'</td>
+							<td>'.$value->name.'</td>
+							<td>'.$value->address.'</td>
+							<td>'.$value->phone.'</td>
+							<td>'.$value->email.'</td>
+							<td><a onclick="setName('.$value->id.');" class="md-trigger import" data-toggle="modal" data-target="#myModal"> Sale </a></td>
+						</tr>';
+			}
+
+			return $x;
+		}
+
+		/*
+		| SET AGENCY NAME 
+		*/ 
+
+		public function setAgencyName() {
+			$id 			= Input::get('id');
+			$person 		= person::where('id',$id)->first()->pluck('name');
+			return $person;
+		}
+
+		/*
+		| LIST CUSTOMERS IN CUSTOMERS SALES HISTORY 
+		*/ 
+		public function customerHistory() {
+
+			$history = DB::table('bill')
+						->join('person','person.id','=','bill.person_id')
+						->select('bill.id','bill.date','bill.bill_total','bill.loan','bill.cash','person.name','person.phone')->where('bill.bill_type','customerSell')->get();
+						$x = '';
+				foreach ($history as $value) {
+									$x .='<tr>
+                    <td>'.$value->id.'</td>
+                    <td>'.$value->name.'</td>
+                    <td>'.$value->date.'</td>
+                    <td>'.$value->phone.'</td>
+                    <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material" onclick="seeImportMaterial('.$value->id.');">See Materials</a></td>
+                    <td>'.$value->bill_total.'</td>
+                    <td>'.$value->cash.'</td>
+                    <td>'.$value->loan.'</td>
+                  </tr>';
+				
+					}
+				return $x;
+
 		}
 	}
 

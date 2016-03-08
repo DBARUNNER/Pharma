@@ -109,6 +109,64 @@ Sistan Pharma/Sales
 
 @section('content')
 
+<!-- End of BILL form  -->
+  <div class="modal fade" id="agencyModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Register Agency</h4>
+        </div>
+        <div class="modal-body">
+
+  <form class="form-horizontal" role="form" method="post" action="{{ URL::route('register-agency-post')}}">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter name" name="name"  required="required">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="phone">Phone:</label>
+      <div class="col-sm-10">          
+        <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" required="required">
+      </div>
+    </div>
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="address">Address:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="address" name="address" placeholder="Enter your Address" required="required">
+      </div>
+    </div>
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">          
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email" required="required">
+      </div>
+    </div>
+    <div class="form-group" style="display: none;">
+      <label class="control-label col-sm-2" for="id">ID:</label>
+      <div class="col-sm-10">          
+        <input type="number" class="form-control" id="id" name="id" placeholder="Enter password" required="required">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-lg btn-primary active">Submit<i class="fa fa-pencil-o"></i></button>
+
+      </div>
+    </div>
+  </form>
+</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
      @if(Session::has('error'))
       <div class="row" style="position: relative;">
                 <div class="alert alert-danger" id="error-message">
@@ -130,8 +188,8 @@ Sistan Pharma/Sales
   <ul id="sales-tab" class="nav nav-tabs">
        <li class="active"><a href="#home" data-toggle="tab">
            Sales to customer <i class="fa fa-chevron-down"></i> </a></li>
-       <li><a href="#agency" data-toggle="tab"> Sales to Agency <i class="fa fa-chevron-down"></i> </a></li>
-       <li><a href="#Chistory" data-toggle="tab"> Customer Sales history <i class="fa fa-chevron-down"></i> </a></li>
+       <li id="saleAgency"><a href="#agency" data-toggle="tab"> Sales to Agency <i class="fa fa-chevron-down"></i> </a></li>
+       <li id="customerSaleHistory"><a href="#Chistory" data-toggle="tab"> Customer Sales history <i class="fa fa-chevron-down"></i> </a></li>
        <li><a href="#Ahistory" data-toggle="tab"> Agency Sales history <i class="fa fa-chevron-down"></i> </a></li>
       <li class="dropdown">
         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
@@ -139,7 +197,7 @@ Sistan Pharma/Sales
          <i class = "fa fa-pencil-square-o"></i> Register New <b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
              <li><a href="#registerCustomer" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Customer</a></li>
-             <li><a href="#registerAgency" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Agency</a></li>
+             <li id="listAgent"><a href="#registerAgency" tabindex="-1" data-toggle="tab"><i class = "fa fa-pencil-square-o"> </i> Add new Agency</a></li>
           </ul>
        </li>
 </ul>
@@ -226,44 +284,13 @@ Sistan Pharma/Sales
             <th><input type="text" class="form-control" placeholder="Agency Name" disabled></th>
             <th><input type="text" class="form-control" placeholder="Address" disabled></th>
             <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Email" disabled></th>
             <th><input type="text" class="form-control" placeholder="Sale" disabled></th>
           </tr>
 
         </thead>
-        <tbody>
-          <tr>
-            <td>alex</td>
-            <td>Alex Nilson</td>
-            <td>1234</td>
-            <td class="center">power user </td>
-            <td class="center"><a class="md-trigger import" data-toggle="modal" data-target="#myModal" > Sale </a></td>
-            <!-- Sales Modal Start-->
-
-
-            <!-- Sales Modal End -->
-
-          </tr>
-          <tr>
-            <td>lisa</td>
-            <td>Lisa Wong </td>
-            <td>434</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-          </tr>
-          <tr>
-            <td>nick12 </td>
-            <td>Nick Roberts</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-          </tr>
-          <tr>
-            <td>goldweb</td>
-            <td>Sergio Jackson</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-          </tr>
+        <tbody id="list-agency">
+          
         </tbody>
       </table>
     </div>
@@ -297,65 +324,19 @@ Sistan Pharma/Sales
       <table class="table table-striped table-hover" id="sample_editable_1">
         <thead>
           <tr class="filters" id="table-style">
-            <th><input type="text" class="form-control" placeholder="id" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Bill No" disabled></th>
             <th><input type="text" class="form-control" placeholder="Customer Name" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Address" disabled></th>
             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
             <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Materials" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Bill total" disabled></th>
             <th><input type="text" class="form-control" placeholder="Cash" disabled></th>
             <th><input type="text" class="form-control" placeholder="Balance" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Invers" disabled></th>
           </tr>
 
         </thead>
-        <tbody>
-          <tr>
-            <td>alex</td>
-            <td><a data-toggle="modal" data-target="#Customer_Modal">Ahmad</a></td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">Power user </td>
-
-            <!-- Sales Modal Start-->
-
-
-            <!-- Sales Modal End -->
-
-          </tr>
-          <tr>
-            <td>lisa</td>
-            <td>Lisa Wong </td>
-            <td>434</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">Power user </td>
-          </tr>
-          <tr>
-            <td>nick12 </td>
-            <td>Nick Roberts</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td>232</td> 
-            <td class="center">power user</td>
-          </tr>
-          <tr>
-            <td>goldweb</td>
-            <td>Sergio Jackson</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td> 132</td> 
-            <td class="center"> elite user</td>
-
-          </tr>
+        <tbody id="customer-sale-history">
+          
         </tbody>
       </table>
     </div>
@@ -512,7 +493,7 @@ Sistan Pharma/Sales
   <div class="tab-pane fade" id="registerAgency">
                 <div class="panel panel-default filterable">
               <div class="panel-heading">
-                <h1 class="panel-title">Suplier Information</h1>
+                <h1 class="panel-title">Agent Information</h1>
                 <div class="pull-right">
                     <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
                 </div>
@@ -525,15 +506,16 @@ Sistan Pharma/Sales
                     <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
                     <th><input type="text" class="form-control" placeholder="Address" disabled></th>        
                     <th><input type="text" class="form-control" placeholder="Email" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Agency" disabled></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="agent-table-body">
                   
                 </tbody>
               </table>
             </div>
   </div>
-    <!-- Agency Register End -->
+    
 
   <!-- model code is here -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -541,14 +523,14 @@ Sistan Pharma/Sales
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="myModalLabel">Sales To Customer Bill</h4>
+        <h4 class="modal-title" id="myModalLabel">Sales To <span id="person_type">Customer</span> Bill</h4>
       </div>
       <div class="modal-body">
         <!-- Start of BILL form  -->
         <div class="container-fliud">
           <div class="row">
             <div class="col-sm-12">
-              <legend >Suplier Name:<span id="suplier-name" style="font-size: 1.5em;color: red;"></span></legend>
+              <legend><span id="person-name">Suplier Name:</span> <span id="suplier-name" style="font-size: 0.8em;color: red;"> name</span></legend>
             </div>
             <!-- panel preview -->
             <div class="col-sm-4">
@@ -672,8 +654,8 @@ Sistan Pharma/Sales
           </div>
         </div>
       </div>
-        <!-- End of BILL form  -->
-
+       
+ 
 
     <!-- Customer Complete Information Modal Start -->
     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="Customer_Modal" class="modal fade">
@@ -720,5 +702,4 @@ Sistan Pharma/Sales
       </div>
     </div>
     <!-- Material Model  -->
-
 @stop
