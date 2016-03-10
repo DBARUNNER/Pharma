@@ -108,12 +108,12 @@ Sistan Pharma/stock
       </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
+        <div class="btn-group" role="group" id="stockStatus">
             <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
                 <div class="hidden-xs">Stock Status</div>
             </button>
         </div>
-        <div class="btn-group" role="group">
+        <div class="btn-group" role="group" id="medicin-status">
             <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
                 <div class="hidden-xs">Medicine Status</div>
             </button>
@@ -130,7 +130,7 @@ Sistan Pharma/stock
         <div class="tab-pane fade in active" id="tab1">
           <div class="panel panel-default filterable">
             <div class="panel-heading" id ="table-panel" >
-               <h2 class="panel-title"> Stock Info </h2>
+               <h2 class="panel-title" style="color:white;"> Stock Info </h2>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->
@@ -158,41 +158,17 @@ Sistan Pharma/stock
                   <th><input type="text" class="form-control" placeholder="Total Price" disabled></th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>alex</td>
-                  <td>Alex Nilson</td>
-                  <td>1234</td>
-                  <td class="center">power user </td>
-                  <td><a class="edit" href="#">Sale </a> </td>
+              <tbody id="stock-status-body">
+              @foreach($stocks as $stock)
+                  <tr>
+                    <td>{{ $stock->barcode }}</td>
+                    <td>{{ $stock->generic_name }}</td>
+                    <td>{{ $stock->quantity }}</td>
+                    <td>{{ $stock->price }}</td>
+                    <td>{{ $stock->total_price }}</td>
+                  </tr>
 
-                  <!-- Sales Modal Start-->
-
-
-                  <!-- Sales Modal End -->
-
-                </tr>
-                <tr>
-                  <td>lisa</td>
-                  <td>Lisa Wong </td>
-                  <td>434</td>
-                  <td class="center">new user</td>
-                  <td><a class="edit" href="javascript:;"> </a> </td>
-                </tr>
-                <tr>
-                  <td>nick12 </td>
-                  <td>Nick Roberts</td>
-                  <td>232</td> 
-                  <td class="center">power user</td>
-                  <td><a class="edit" href="javascript:;"> </a> </td>
-                </tr>
-                <tr>
-                  <td>goldweb</td>
-                  <td>Sergio Jackson</td>
-                  <td> 132</td> 
-                  <td class="center"> elite user</td>
-                  <td><a class="edit" href="javascript:;"> </a> </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -203,7 +179,7 @@ Sistan Pharma/stock
         <div class="tab-pane fade in" id="tab2">
           <div class="panel panel-default filterable">
             <div class="panel-heading" id ="table-panel" >
-              <h2 class="panel-title"> Medicine Info</h2>
+              <h2 class="panel-title" style="color:white;"> Medicine Info</h2>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->
@@ -224,8 +200,8 @@ Sistan Pharma/stock
             <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
               <thead>
                 <tr class="filters">
-                  <th><input type="text" class="form-control" placeholder="Medicine id" disabled></th>
-                  <th><input type="text" class="form-control" placeholder="Barcode" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Batch Number" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Generic Name" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Quentity" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Product Date" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Expire Date" disabled></th>
@@ -233,49 +209,8 @@ Sistan Pharma/stock
                   <th><input type="text" class="form-control" placeholder="Weight" disabled></th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>alex</td>
-                  <td>Alex Nilson</td>
-                  <td>1234</td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                  <td><a class="edit" href="#">Sale </a> </td>
-
-                  <!-- Sales Modal Start-->
-
-
-                  <!-- Sales Modal End -->
-
-                </tr>
-                <tr>
-                  <td>lisa</td>
-                  <td>Lisa Wong </td>
-                  <td>434</td>
-                  <td class="center">new user</td>
-                  <td class="center">new user</td>
-                  <td class="center">new user</td>
-                  <td><a class="edit" href="javascript:;"> </a> </td>
-                </tr>
-                <tr>
-                  <td>nick12 </td>
-                  <td>Nick Roberts</td>
-                  <td>232</td>
-                  <td>Nick Roberts</td>
-                  <td>Nick Roberts</td> 
-                  <td class="center">power user</td>
-                  <td><a class="edit" href="javascript:;"> </a> </td>
-                </tr>
-                <tr>
-                  <td>goldweb</td>
-                  <td>Sergio Jackson</td>
-                  <td> 132</td> 
-                  <td> 132</td> 
-                  <td> 132</td> 
-                  <td class="center"> elite user</td>
-                  <td><a class="edit" href="javascript:;"> </a> </td>
-                </tr>
+              <tbody id="medicin-status-table">
+              
               </tbody>
             </table>
           </div>

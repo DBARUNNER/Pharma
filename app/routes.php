@@ -222,7 +222,6 @@ Route::group(array('before' => 'csrf'), function() {
 		'uses'	=> 'importController@seeImportMaterial'
 		));
 
-
 	/*
 	| IMPORT AJAX ROUTE 
 	*/ 
@@ -284,8 +283,25 @@ Route::group(array('before' => 'csrf'), function() {
 	Route::get('salesHistory',array(
 		'as'	=> 'customer-sales-history-ajax',
 		'uses'	=> 'salesController@customerHistory'
-		
 		));
+	// LIST OF CUSTOMER MATERIALS 
+	Route::post('customerMaterial',array(
+		'as'	=> 'list-customer-material-ajax',
+		'uses'	=> 'salesController@seeCustomerMaterials'
+		
+		));	
+
+	// AJENCY SALESS HISTOYR 
+	Route::get('agencyHistory',array(
+		'as'	=> 'agency-history-ajax',
+		'uses'	=> 'salesController@agencyHistory'
+		));
+	// MIN QUNTITY OF SALESS FROM STOCK 
+	Route::post('minQuantity',array(
+		'as'	=> 'mines-quntity-ajax',
+		'uses'	=> 'salesController@minesQuantity'
+		));
+
 	/*=============================================================
 	| Employee route is all here 
 	*==============================================================*/
@@ -296,6 +312,21 @@ Route::group(array('before' => 'csrf'), function() {
 		
 		));
 
+
+	/*=============================================================
+	| Stock route is all here
+	*==============================================================*/
+	
+	Route::get('stockStatus',array(
+		'as'	=> 'stock-status-ajax',
+		'uses'	=> 'stockController@stockStatus'
+		));
+
+	// Medicine status ajax route
+	Route::get('medicinStatus',array(
+		'as'	=> 'medicine-status-ajax',
+		'uses'	=> 'stockController@medicineStatus'
+		));
 
 
 

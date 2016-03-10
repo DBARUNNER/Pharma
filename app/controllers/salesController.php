@@ -59,6 +59,12 @@
 			}else {
 				$bill_type  	= 'customerSell';
 			}
+
+			if (count($material) < 1) {
+				return "Insert your Materials first Please!";
+			}else {
+
+
 			
 			$bill 	  		= new bill;
 			$bill->date 		= $date;
@@ -101,6 +107,8 @@
 			}
 
 			return "Bill have Transfared successfully!";
+
+			}
 
 		}
 
@@ -203,6 +211,7 @@
 		*/ 
 
 		public function registerAgencyPost() {
+
 			$name 		= Input::get('name');
 			$phone 		= Input::get('phone');
 			$address 	= Input::get('address');
@@ -273,7 +282,7 @@
                     <td>'.$value->name.'</td>
                     <td>'.$value->date.'</td>
                     <td>'.$value->phone.'</td>
-                    <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material" onclick="seeImportMaterial('.$value->id.');">See Materials</a></td>
+                    <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material" onclick="seeCustomerMaterial('.$value->id.');">See Materials</a></td>
                     <td>'.$value->bill_total.'</td>
                     <td>'.$value->cash.'</td>
                     <td>'.$value->loan.'</td>
@@ -283,6 +292,81 @@
 				return $x;
 
 		}
+
+		/*
+		| SEE CUSTOMER MATERIALS AJAX 
+		*/ 
+
+		public function seeCustomerMaterials() {
+			$id 			= Input::get('id');
+			$materials 		= sale::where('bill_id',$id)->get();
+			$x = '';
+			foreach ($materials as $value) {
+				$x .='<tr>
+					<td>'.$value->generic_name.'</td>
+					<td>'.$value->madein.'</td>
+					<td>'.$value->quantity.'</td>
+					<td>'.$value->status.'</td>
+					<td>'.$value->product_date.'</td>
+					<td>'.$value->expire_date.'</td>
+					<td>'.$value->price.'</td>
+					<td>'.$value->barcode.'</td>
+					<td>'.$value->weight.'</td>
+				</tr>';
+			}
+			return $x; 
+		}
+
+		/*
+		| AGHENCY SELLES HISTORY AJAX 
+		*/ 
+
+		public function agencyHistory() {
+		
+			$history = DB::table('bill')
+						->join('person','person.id','=','bill.person_id')
+						->select('bill.id','bill.date','bill.bill_total','bill.loan','bill.cash','person.name','person.phone')->where('bill.bill_type','agencySell')->get();
+						$x = '';
+				foreach ($history as $value) {
+									$x .='<tr>
+                    <td>'.$value->id.'</td>
+                    <td>'.$value->name.'</td>
+                    <td>'.$value->date.'</td>
+                    <td>'.$value->phone.'</td>
+                    <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material" onclick="seeCustomerMaterial('.$value->id.');">See Materials</a></td>
+                    <td>'.$value->bill_total.'</td>
+                    <td>'.$value->cash.'</td>
+                    <td>'.$value->loan.'</td>
+                  </tr>';
+				
+					}
+				return $x;
+		}
+
+		/*
+		| MINES SALESS QUNATITY FROM STOCK 
+		*/ 
+
+		public function minesQuantity() {
+			$batchNumber  	= Input::get('batchNumber');
+			$quantity 		= Input::get('quantity');
+			$price 			= Input::get('price');
+			$stock 			= medicin::where('barcode',$batchNumber)->first();
+			$stock 			= $stock->quantity;
+			if($stock < 1) {
+				return "this medicine have finished from stock!";
+			}
+			elseif ($stock < $quantity) {
+				return "we dont have that much medicine in stock!";
+			}else {
+				
+				$stock 				= $stock - $quantity ;
+				$totalPrice 		= $stock * $price; 
+				$affectedRows = medicin::where('barcode', '=', $batchNumber)->update(array('quantity' => $stock,'total_price' => $totalPrice));	
+				return "Minuse have done!";	
+			}
+		}
+
 	}
 
 

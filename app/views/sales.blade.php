@@ -190,7 +190,7 @@ Sistan Pharma/Sales
            Sales to customer <i class="fa fa-chevron-down"></i> </a></li>
        <li id="saleAgency"><a href="#agency" data-toggle="tab"> Sales to Agency <i class="fa fa-chevron-down"></i> </a></li>
        <li id="customerSaleHistory"><a href="#Chistory" data-toggle="tab"> Customer Sales history <i class="fa fa-chevron-down"></i> </a></li>
-       <li><a href="#Ahistory" data-toggle="tab"> Agency Sales history <i class="fa fa-chevron-down"></i> </a></li>
+       <li id="agency-sales"><a href="#Ahistory" data-toggle="tab"> Agency Sales history <i class="fa fa-chevron-down"></i> </a></li>
       <li class="dropdown">
         <a href="#" id="myTabDrop1" class="dropdown-toggle" 
           data-toggle="dropdown">
@@ -368,70 +368,19 @@ Sistan Pharma/Sales
       <table class="table table-striped table-hover" id="sample_editable_1">
         <thead>
           <tr class="filters" id="table-style">
-            <th><input type="text" class="form-control" placeholder="id" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Bill No" disabled></th>
             <th><input type="text" class="form-control" placeholder="Customer Name" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Invoice Number" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Address" disabled></th>
             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
             <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Materials" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Bill total" disabled></th>
             <th><input type="text" class="form-control" placeholder="Cash" disabled></th>
             <th><input type="text" class="form-control" placeholder="Balance" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Invers" disabled></th>
           </tr>
 
         </thead>
-        <tbody>
-          <tr>
-            <td>alex</td>
-            <td>Alex Nilson</td>
-            <td><a class="md-trigger import" data-toggle="modal" data-target="#import-material">1234 </a> </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">Power user </td>
-            <td class="center">Power user </td>
-
-            <!-- Sales Modal Start-->
-
-
-            <!-- Sales Modal End -->
-
-          </tr>
-          <tr>
-            <td>lisa</td>
-            <td>Lisa Wong </td>
-            <td>434</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">Power user </td>
-          </tr>
-          <tr>
-            <td>nick12 </td>
-            <td>Nick Roberts</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td>232</td> 
-            <td class="center">power user</td>
-          </tr>
-          <tr>
-            <td>goldweb</td>
-            <td>Sergio Jackson</td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td class="center">power user </td>
-            <td> 132</td> 
-            <td class="center"> elite user</td>
-            <td class="center">Power user </td>
-
-          </tr>
+        <tbody id="agency-sales-history">
+          
         </tbody>
       </table>
     </div>
@@ -515,8 +464,64 @@ Sistan Pharma/Sales
               </table>
             </div>
   </div>
-    
 
+
+      <!-- Material  model -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="import-material" class="modal fade">
+      <div class="modal-dialog" id="materila-import">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Material Information </h4>
+          </div>
+          <div class="modal-body">
+           <!-- Material table -->
+              <div class="widget stacked widget-table action-table">
+          <!--   
+        <div class="widget-header">
+          <i class="icon-th-list"></i>
+          <h3>Table</h3>
+        </div>  -->
+        
+        <div class="widget-content">
+          
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Made In</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Product Date</th>
+                  <th>Expire Date</th>
+                  <th>Price</th>
+                  <th>Label</th>
+                  <th>Weight</th>
+
+              </tr>
+            </thead>
+            <tbody id="import-material-body">
+              
+              </tbody>
+            </table>
+          
+        </div> <!-- /widget-content -->
+      
+      </div> <!-- /widget -->
+
+
+           <!-- End of material table -->
+          </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                <button class="btn btn-theme" type="submit">Submit</button>
+              </div>
+        </div>
+      </div>
+    </div>
+    <!-- Material Model  -->
+
+    
   <!-- model code is here -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" id="modal-dialog">
@@ -602,7 +607,7 @@ Sistan Pharma/Sales
                       <input type="text" onblur="retriveValue();" class="form-control" id="label" name="label">
                     </div>
                     <div class="col-sm-6 text-right">
-                      <button type="button" class="btn btn-success preview-add-button" style="border-radius: 0px;">
+                      <button type="button" onclick="minQuantity();" class="btn btn-success preview-add-button" style="border-radius: 0px;">
                         <span class="glyphicon glyphicon-plus"></span> Add
                       </button>
                     </div>                   
@@ -655,8 +660,7 @@ Sistan Pharma/Sales
         </div>
       </div>
        
- 
-
+      
     <!-- Customer Complete Information Modal Start -->
       <div class="modal fade" id="CustomerModal" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -675,4 +679,6 @@ Sistan Pharma/Sales
         </div>
       </div>
     <!-- Material Model  -->
+
+
 @stop

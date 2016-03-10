@@ -86,6 +86,9 @@
 			$date 	  = date("Y-m-d");
 			$bill_type = 'import';
 
+			if(count($material) < 1) {
+				return "Please fill the form first please!";
+			}else {
 			$bill 	  = new bill;
 			$bill->date = $date;
 			$bill->bill_total = $total;
@@ -127,7 +130,8 @@
 			}
 
 			return "bill have been imported successfully!";
-
+			
+			}
 		}
 
 

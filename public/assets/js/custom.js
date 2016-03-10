@@ -273,8 +273,6 @@ $(document).ready(function(){
         function retriveValue() {
             var batchNumber = document.getElementById('label').value;
             
-
-
             $(document).ready(function(){
         
             $.post("retrieveDate",
@@ -353,3 +351,83 @@ $(document).ready(function(){
         });
       });
     });
+
+     /*
+     | see customer sell materials 
+     */ 
+
+     function seeCustomerMaterial(id) {
+        $(document).ready(function(){
+        
+            $.post("customerMaterial",
+            {
+               id:id
+            },
+            function(data,status){
+                document.getElementById('import-material-body').innerHTML = data;
+            });
+        });
+     }
+
+
+
+     /*
+     | AGENCY SALES HISTORY
+     */ 
+     $(document).ready(function(){
+      $("li#agency-sales").click(function(){
+        $.get("agencyHistory",function(data,status){
+            document.getElementById('agency-sales-history').innerHTML = data;
+        });
+      });
+    });
+
+
+     /*
+     | MINES THE SELL QUANTITY FROM STOCK 
+     */ 
+     function minQuantity() {
+        total()
+        var batchNumber    = document.getElementById('label').value;
+        var quantity       = document.getElementById('amount').value;
+        var price          = document.getElementById('price').value;
+        $(document).ready(function(){
+        
+            $.post("minQuantity",
+            {
+               batchNumber:batchNumber,
+               quantity:quantity,
+               price:price
+            },
+            function(data,status){
+               
+               alert(data);
+            });
+        });
+        
+     }
+
+
+     /*
+     | RETURN STOCK STATUS 
+     */ 
+      $(document).ready(function(){
+      $("div#stockStatus").click(function(){
+        $.get("stockStatus",function(data,status){
+            document.getElementById('stock-status-body').innerHTML = data;
+        });
+      });
+    });
+
+
+    /*
+    | MEDICIN STATUS AJAX CODE
+    */ 
+    $(document).ready(function(){
+      $("div#medicin-status").click(function(){
+        $.get("medicinStatus",function(data,status){
+            document.getElementById('medicin-status-table').innerHTML = data;
+        });
+      });
+    });
+
