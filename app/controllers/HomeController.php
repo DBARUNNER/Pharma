@@ -11,10 +11,12 @@
 			$date 			= date('Y-m-d', $months);
 			$expire			= medicin::where('expire_date','<=',$date)->get();
 			$msgNumber 		= count($expire);
+			$type 			= 'expire';
 			return View::make('home',array(
 				'expire'	=> $expire,
 				'msgNumber'	=> $msgNumber,
-				'msg'		=> 'Just 3 moths in Expiration'
+				'msg'		=> 'Just 3 moths in Expiration',
+				'type'		=> $type
 				));	
 		}
 

@@ -13,10 +13,12 @@
 
 		public function importGet() {
 			$suplierList = person::all();
+			$type 		 = 'import';
 			return View::make('import',array(
 				'suplierList' => $suplierList,
 				'expire'	=> '',
-				'msgNumber'	=> 0
+				'msgNumber'	=> 0,
+				'type'		=> $type
 				
 				));
 		}

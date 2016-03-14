@@ -7,10 +7,20 @@
 	{
 		public function salesGet() {
 			$customer = person::where('person_type','customer')->get();
+
+			// person who dont pay more than one week 
+
+			
+			$dontPay  	= bill::where('loan','!=',0)->get();
+			$msgNumber 	= count($dontPay);
+			$type 		= 'loan';
 			return View::make('sales',array(
 				'customers' => $customer,
 				'expire'	=> '',
-				'msgNumber'	=> 0
+				'msgNumber'	=> 0,
+				'dontPay'	=> $dontPay,
+				'Number'	=> $msgNumber,
+				'type'		=> $type
 					
 				));
 		}

@@ -9,7 +9,10 @@ class adminController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('admin');
+		$type 	= 'amdin';
+		return View::make('admin',array(
+			'type'	=> $type
+			));
 	}
 
 
