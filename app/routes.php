@@ -312,7 +312,28 @@ Route::group(array('before' => 'csrf'), function() {
 		
 		));
 
+	Route::post('editEmployee',array(
+		'as'	=> 'edit-employee-post',
+		'uses'	=> 'employeeController@editEmployee'
+		));
 
+	// employee history ajax
+	Route::get('employeeHistory',array(
+		'as'	=> 'employee-history-ajax',
+		'uses'	=> 'employeeController@employeeHistoy'
+		));
+
+	// Edit employee list information post ajax 
+	Route::post('editEmployeeList',array(
+		'as'	=> 'employee-edit-ajax',
+		'uses'	=> 'employeeController@editEmployeeAjax'
+		));
+
+	// Delet employee 
+	Route::post('deletEmployee',array(
+		'as'	=> 'delet-employee-ajax',
+		'uses'	=> 'employeeController@deletEmployee'
+		));
 	/*=============================================================
 	| Stock route is all here
 	*==============================================================*/
@@ -326,6 +347,35 @@ Route::group(array('before' => 'csrf'), function() {
 	Route::get('medicinStatus',array(
 		'as'	=> 'medicine-status-ajax',
 		'uses'	=> 'stockController@medicineStatus'
+		));
+
+	
+
+	/*=============================================================
+	| Dailly payment routes
+	*==============================================================*/
+	Route::post('dailyPayments',array(
+		'as'	=> 'daily-payment-post',
+		'uses'	=> 'dailyController@dailyPayments'
+		));
+
+	Route::get('dailyHistory',array(
+		'as'	=> 'daily-history-ajaz',
+		'uses'	=> 'dailyController@dailyHistory'
+		));
+
+	/*
+	| Expire medicin info in mode l
+	*/
+
+	Route::post('expireInfo',array(
+		'as'	=> 'expire-info-ajax',
+		'uses'	=> 'HomeController@expireInfo'
+		));
+	// all the expire medicine information 
+	Route::get('expireInfoAll',array(
+		'as'	=> 'expire-infoAll-ajax',
+		'uses'	=> 'HomeController@expireInfoAll'
 		));
 
 

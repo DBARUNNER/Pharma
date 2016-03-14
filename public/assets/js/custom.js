@@ -408,16 +408,16 @@ $(document).ready(function(){
      }
 
 
-     /*
-     | RETURN STOCK STATUS 
-     */ 
-      $(document).ready(function(){
-      $("div#stockStatus").click(function(){
-        $.get("stockStatus",function(data,status){
-            document.getElementById('stock-status-body').innerHTML = data;
-        });
-      });
-    });
+    //  /*
+    //  | RETURN STOCK STATUS 
+    //  */ 
+    //   $(document).ready(function(){
+    //   $("div#stockStatus").click(function(){
+    //     $.get("stockStatus",function(data,status){
+    //         document.getElementById('stock-status-body').innerHTML = data;
+    //     });
+    //   });
+    // });
 
 
     /*
@@ -431,3 +431,100 @@ $(document).ready(function(){
       });
     });
 
+
+    /*
+    | employees history 
+    */ 
+    $(document).ready(function(){
+      $("li#employee-history").click(function(){
+        $.get("employeeHistory",function(data,status){
+            document.getElementById('employee-history-table').innerHTML = data;
+        });
+      });
+    });
+
+    
+    /*
+    | daily payments history 
+    */ 
+     $(document).ready(function(){
+      $("div#payment-history").click(function(){
+        $.get("dailyHistory",function(data,status){
+            document.getElementById('paiyment-history').innerHTML = data;
+        });
+      });
+    });
+
+
+
+     /*
+     | Edite employee
+     */ 
+
+     function editEmployee(id) {
+        $(document).ready(function(){
+        
+            $.post("editEmployeeList",
+            {
+               id:id
+            },
+            function(data,status){
+               document.getElementById('edit-modal-body').innerHTML = data;
+            });
+        });  
+     }
+
+     /*
+     | CONFIRM DELETION OF THE USER
+     */ 
+
+
+     function deletEmployee(id) {
+
+        if (confirm("Do you want to delete the Employee!") == true) {
+              
+             $.post("deletEmployee",
+            {
+               id:id
+            },
+            function(data,status){
+               if(data == 1) {
+                alert('Employee have been deleted successfully!');
+               }else {
+                alert('something is wrong please tyr agiain');
+               }
+            });
+
+        } else {
+            
+        }
+        
+
+     }
+
+
+     /*
+     | INFROMATION OF EXPIRE MATERIAL 
+     */ 
+
+     function expireInfo(id) {
+
+          $.post("expireInfo",
+            {
+               id:id
+            },
+            function(data,status){
+              document.getElementById('expire-body').innerHTML = data;
+            });
+     }
+
+     /*
+     | show all the expired medicine 
+     */ 
+     $(document).ready(function(){
+      $("a#infoAll").click(function(){
+        $.get("expireInfoAll",function(data,status){
+            document.getElementById('expire-body').innerHTML = data;
+        });
+      });
+    });

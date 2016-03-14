@@ -132,7 +132,7 @@ Sistan Pharma/employee
         <ul class="nav panel-tabs">
           <li class="active"><a href="#register" data-toggle="tab">Register New Employee</a></li>
           <li><a href="#salary" data-toggle="tab">Salary Payment</a></li>
-          <li><a href="#employeeHistory" data-toggle="tab">Employee history</a></li>
+          <li id="employee-history"><a href="#employeeHistory" data-toggle="tab">Employee history</a></li>
         </ul>
     </div>
     <div class="panel-body">
@@ -297,7 +297,7 @@ Sistan Pharma/employee
         <div class="tab-pane" id="employeeHistory">
           <div class="panel panel-default filterable" style="border-radius: 0px;">
             <div class="panel-heading" id ="table-panel" >
-              <h2 class=" text-info panel-title">Agency Sales Info</h2>
+              <h2 class=" text-info panel-title" style="color:white;">Employee History Info</h2>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->
@@ -320,46 +320,16 @@ Sistan Pharma/employee
                 <tr class="filters" id="table-style">
                   <th><input type="text" class="form-control" placeholder="Employee Id" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Name" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Father Name" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Hire-Date" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Address" disabled></th>
                   <th><input type="text" class="form-control" placeholder="Edit" disabled></th>
                   <th><input type="text" class="form-control" placeholder="delete" disabled></th>
                 </tr>
 
               </thead>
-              <tbody>
-                <tr>
-                  <td>alex</td>
-                  <td>Alex Nilson</td>
-                  <td>1234</td>
-                  <td class="center">power user </td>
-                  <td class="center"><a class="md-trigger import" data-toggle="modal" data-target="#myModal" > Sale </a></td>
-                  <!-- Sales Modal Start-->
-
-
-                  <!-- Sales Modal End -->
-
-                </tr>
-                <tr>
-                  <td>lisa</td>
-                  <td>Lisa Wong </td>
-                  <td>434</td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                </tr>
-                <tr>
-                  <td>nick12 </td>
-                  <td>Nick Roberts</td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                </tr>
-                <tr>
-                  <td>goldweb</td>
-                  <td>Sergio Jackson</td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                </tr>
+              <tbody id="employee-history-table">
+                
               </tbody>
             </table>
           </div>
@@ -367,4 +337,31 @@ Sistan Pharma/employee
       </div>
     </div>
   </div>
+
+
+  <!-- Edit model  -->
+              <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="editModal" class="modal fade">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title">Edit Employee Information</h4>
+                          </div>
+                          <div class="modal-body">
+                            <form role="form" method="post" action="{{ URL::route('edit-employee-post')}}" id="edit-modal-body">
+                                <!-- start of the form -->
+
+                                <!--  End fo the form  -->
+                          </div>
+                          <div class="modal-footer">
+                          <div class="col-xs-12">
+                              <button id="editEmployee" class="btn btn-theme btn-blok" type="submit">Submit</button>
+                          </div>
+                          </div>
+                            </form>
+                      </div>
+                  </div>
+              </div>
+
+  <!-- End of edito modal -->
 @stop

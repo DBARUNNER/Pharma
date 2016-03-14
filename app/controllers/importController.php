@@ -14,7 +14,10 @@
 		public function importGet() {
 			$suplierList = person::all();
 			return View::make('import',array(
-				'suplierList' => $suplierList
+				'suplierList' => $suplierList,
+				'expire'	=> '',
+				'msgNumber'	=> 0
+				
 				));
 		}
 

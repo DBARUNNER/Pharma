@@ -119,63 +119,34 @@
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="fa fa-envelope-o"></i>
-                            <span class="badge bg-theme">5</span>
+                            <span class="badge bg-theme">{{ $msgNumber }}</span>
                         </a>
-                        <ul class="dropdown-menu extended inbox">
+                        <ul class="dropdown-menu extended inbox" id="notfication">
                             <div class="notify-arrow notify-arrow-green"></div>
                             <li>
-                                <p class="green">You have 5 new messages</p>
+                                <p class="green">You have 
+                                {{ $msgNumber }} 
+                                 new messages</p>
                             </li>
+                           @if($msgNumber != 0) 
+                            @foreach($expire as $exp)
                             <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-zac.jpg"></span>
+                                <a href="" onclick="expireInfo('{{ $exp->barcode }}')" data-toggle="modal" data-target="#expirModal">
+                                    <span class="photo"><img alt="avatar" src="assets/img/ui-zac.png"></span>
                                     <span class="subject">
-                                    <span class="from">Zac Snider</span>
+                                    <span class="from">{{ $exp->generic_name }}</span>
                                     <span class="time">Just now</span>
                                     </span>
                                     <span class="message">
-                                        Hi mate, how is everything?
+                                        {{ $msg }}
                                     </span>
                                 </a>
                             </li>
+                            @endforeach 
+                            @endif
+                                                    
                             <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-divya.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Divya Manian</span>
-                                    <span class="time">40 mins.</span>
-                                    </span>
-                                    <span class="message">
-                                     Hi, I need your help with this.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-danro.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dan Rogers</span>
-                                    <span class="time">2 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Love your new Dashboard.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="assets/img/ui-sherman.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dj Sherman</span>
-                                    <span class="time">4 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Please, answer asap.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">See all messages</a>
+                                <a href="" id="infoAll" data-toggle="modal" data-target="#expirModal">See all messages</a>
                             </li>
                         </ul>
                     </li>
@@ -209,7 +180,44 @@
               <li><a href="" class="navigation-tab">Sales</a></li>
           </ul></div>
             @yield('content')
-            
+                
+                <!-- Modal -->
+                  <div class="modal fade" id="expirModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <table class="table table-bordered table-striped table-condensed">
+                              <thead>
+                              <tr>
+                                  <th class="numberic">Bare code</th>
+                                  <th>Generic Name</th>
+                                  <th class="numeric">Price</th>
+                                  <th >Made In</th>
+                                  <th>Weight</th>
+                                  <th>Quantity</th>
+                                  <th>Product Date</th>
+                                  <th>Expire Date</th>
+                              </tr>
+                              </thead>
+                              <tbody id="expire-body">
+                              
+                                  
+                              </tbody>
+                          </table>  
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             <!--   -->
 
             <!-- change password model -->
                   <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">

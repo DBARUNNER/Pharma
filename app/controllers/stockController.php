@@ -7,10 +7,18 @@
 	{
 		
 		public function stockGet(){
-			$stocks		= DB::table('medicin')
+			$stocks			= DB::table('medicin')
+							->groupBy('generic_name')
 							->distinct('generic_name')->get();
+
+			// stock notification which is less than 5 
+			$expire 	= medicin::where('quantity','<=', 5)->get();
+			$msgNumber  = count($expire);
 			return View::make('stock',array(
-				'stocks'	=> $stocks
+				'stocks'	=> $stocks,
+				'expire'	=> $expire,
+				'msgNumber'	=> $msgNumber,
+				'msg'		=> 'Less then five is remain in stock'
 				));
 		}
 
@@ -39,7 +47,9 @@
 		*/ 
 
 		public function medicineStatus() {
-			$stocks = medicin::all();
+			$stocks		= DB::table('medicin')
+							->groupBy('generic_name')
+							->distinct('generic_name')->get();
 			$x = '';
 			foreach ($stocks as $value) {
 				$x .= '<tr>

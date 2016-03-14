@@ -105,6 +105,24 @@ Sistan Pharma/dailyPayment
 
 
 @section('content')
+
+ @if(Session::has('error'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-danger" id="error-message">
+                    <strong style="font-size: 20px;">Error !</strong><span style="font-size: 13px;"> {{ Session::get('error') }} </span>
+                </div>
+            </div>
+
+      @endif
+
+      @if(Session::has('success'))
+      <div class="row" style="position: relative;">
+                <div class="alert alert-success" id="error-message">
+                    <strong style="font-size: 20px;">Info !</strong><span style="font-size: 13px;"> {{ Session::get('success') }} </span>
+                </div>
+            </div>
+
+      @endif
   <div id="stock-tab" class="col-md-10 col-sm-10">
     <div class="card hovercard">
         <div class="card-background">
@@ -124,7 +142,7 @@ Sistan Pharma/dailyPayment
                 <div class="hidden-xs">Daily pays</div>
             </button>
         </div>
-        <div class="btn-group" role="group">
+        <div class="btn-group" role="group" id="payment-history">
             <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
                 <div class="hidden-xs">Daily Payment history</div>
             </button>
@@ -144,31 +162,31 @@ Sistan Pharma/dailyPayment
                <i class="fa fa-pencil-square-o"></i> Add Daily Expense
               </div>
               <div class="panel-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" method="post" action="{{ URL::route('daily-payment-post')}}">
                  <div class="form-group">
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Description</label>
                     <div class="col-sm-10">
-                       <textarea class="form-control" rows="3" placeholder="Description..."></textarea>
+                       <textarea class="form-control" rows="3" placeholder="Description..." required="required" type="text" name="desc"></textarea>
                     </div>
                  </div>
                  <div class="form-group">
                     <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Price</label>
                     <div class="col-sm-10">
                        <input type="text" class="form-control" id="lastname" 
-                          placeholder="Cost...">
+                          placeholder="Cost..." required="required" name="price">
                     </div>
                  </div>
                   <div class="form-group">
                     <label id = "label-font-style" for="lastname" class="col-sm-2 control-label">Date</label>
                     <div class="col-sm-10">
                        <input type="date" class="form-control" id="lastname" 
-                          placeholder="Select Date">
+                          placeholder="Select Date" required="required" name="date">
                     </div>
                  </div>
                  <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
+                        <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Reset</button>
                         <button type="submit" class="btn btn-success" style="border-radius: 0px;"><i class="fa fa-save"></i> Save</button>
-                       <button type="reset" class="btn btn-warning" style="border-radius: 0px;"><i class="fa fa-refresh"></i> Reset</button>
                     </div>
                  </div>
               </form>
@@ -181,7 +199,7 @@ Sistan Pharma/dailyPayment
         <div class="tab-pane fade in" id="tab2">
           <div class="panel panel-default filterable">
             <div class="panel-heading" id ="table-panel" >
-              <h2 class="panel-title">Medicine Info</h2>
+              <h2 class="panel-title" style="color:white;">Medicine Info</h2>
               <div class="pull-right btn-group">
 
                <!-- Tools Button Start -->
@@ -210,39 +228,8 @@ Sistan Pharma/dailyPayment
                   <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>alex</td>
-                  <td>Alex Nilson</td>
-                  <td>1234</td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                  <td class="center">power user </td>
-                </tr>
-                <tr>
-                  <td>lisa</td>
-                  <td>Lisa Wong </td>
-                  <td>434</td>
-                  <td class="center">new user</td>
-                  <td class="center">new user</td>
-                  <td class="center">new user</td>
-                </tr>
-                <tr>
-                  <td>nick12 </td>
-                  <td>Nick Roberts</td>
-                  <td>232</td>
-                  <td>Nick Roberts</td>
-                  <td>Nick Roberts</td> 
-                  <td class="center">power user</td>
-                </tr>
-                <tr>
-                  <td>goldweb</td>
-                  <td>Sergio Jackson</td>
-                  <td> 132</td> 
-                  <td> 132</td> 
-                  <td> 132</td> 
-                  <td class="center"> elite user</td>
-                </tr>
+              <tbody id="paiyment-history">
+                
               </tbody>
             </table>
           </div>

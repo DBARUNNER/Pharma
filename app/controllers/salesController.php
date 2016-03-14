@@ -8,7 +8,10 @@
 		public function salesGet() {
 			$customer = person::where('person_type','customer')->get();
 			return View::make('sales',array(
-				'customers' => $customer	
+				'customers' => $customer,
+				'expire'	=> '',
+				'msgNumber'	=> 0
+					
 				));
 		}
 

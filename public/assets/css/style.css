@@ -7,7 +7,8 @@ Premium: http://www.gridgum.com
 */
 
 /* Import fonts */
-
+/*@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+*/
 /* BASIC THEME CONFIGURATION */
 body {
     color: #797979;
@@ -2712,4 +2713,12 @@ hr.style18 {
 }
 
 /* Employee Page Style End --> */
+
+
+/*Notfication style */
+
+ul#notfication{
+    max-height: 321px; 
+    overflow: scroll;
+}
 
