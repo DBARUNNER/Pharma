@@ -119,7 +119,9 @@
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="fa fa-envelope-o"></i>
-                            <span class="badge bg-theme">{{ $msgNumber }}</span>
+                            @if($msgNumber != 0)
+                            <span class="badge bg-theme" id="badge" style="background-color:red;">{{ $msgNumber }}</span>
+                            @endif
                         </a>
                         <ul class="dropdown-menu extended inbox" id="notfication">
                             <div class="notify-arrow notify-arrow-green"></div>

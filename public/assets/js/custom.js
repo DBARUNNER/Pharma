@@ -528,3 +528,17 @@ $(document).ready(function(){
         });
       });
     });
+
+
+     /*
+     | change style notofication 
+     */ 
+
+     $(document).ready(function(){
+        var numberNotification = document.getElementById('badge').innerHTML;
+        if(numberNotification < 1) {
+          $('#badge').css("background-color","blue !important");
+        }else {
+          $('#badge').css("background-color","red !important");
+        }
+     });
