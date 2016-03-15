@@ -219,7 +219,7 @@ Sistan Pharma/employee
                     <label id = "label-font-style" for="firstname" class="col-sm-2 control-label">Select type</label>
                     <div class="col-sm-10">
                        <select name="type" class="form-control">
-                         <option>Eployee</option>
+                         <option>Employee</option>
                          <option>Agent</option>
                          <option>Customer</option>
                        </select>

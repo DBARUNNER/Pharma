@@ -7,9 +7,11 @@
 	{
 		
 		public function dailyGet(){
+			$type = "dailyPayment";
 			return View::make('dailyPayment',array(
 				'expire'	=> '',
-				'msgNumber'	=> 0
+				'msgNumber'	=> 0,
+				'type'		=> $type
 				));
 		}
 

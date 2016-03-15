@@ -13,6 +13,8 @@
 				'expire'	=> '',
 				'msgNumber'	=> 0,
 				'type' => $type
+
+				));
 		}
 
 		/*
