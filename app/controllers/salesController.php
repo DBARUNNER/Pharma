@@ -9,9 +9,9 @@
 			$customer = person::where('person_type','customer')->get();
 
 			// person who dont pay more than one week 
-
-			
-			$dontPay  	= bill::where('loan','!=',0)->get();
+			$date = date("Y-m-d");
+			$dontPay 	= DB::select('SELECT * FROM bill where (select datediff("'.$date.'", created_at ) = 5 )');	
+			 
 			$msgNumber 	= count($dontPay);
 			$type 		= 'loan';
 			return View::make('sales',array(
@@ -203,7 +203,7 @@
 		*/ 
 
 		public function listAgent() {
-			$employees = employee::where('type','agent')->get();
+			$employees = employee::where('type','Agent')->get();
 			$x = '';
 			foreach ($employees as $value) {
 				$x .= '<tr>
