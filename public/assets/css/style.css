@@ -1088,7 +1088,7 @@ PANELS CONFIGURATIONS
 	margin-left: 15px;
 }
 .white-panel .white-header {
-	background: #f4f4f4;
+	background: #AD7979;
 	padding: 3px;
 	margin-bottom: 15px;
 	color: #c6c6c6;
@@ -2722,3 +2722,23 @@ ul#notfication{
     overflow: scroll;
 }
 
+
+/* Home Page Style Start */
+#home-logo {
+    width: 99%;
+    height: 260px;
+    border: 15px solid #D4CFCF;
+    background-color: #F2F2F2;
+    margin:4px;
+}
+#homo-sub-logo {
+    width: 100%;
+    height: 230px;
+    border: 15px solid #C6BEBE;
+    background-color: #F2F2F2;
+}
+#homo-sub-logo img {
+    height: 120px;
+
+}
+/* Home page Style End */

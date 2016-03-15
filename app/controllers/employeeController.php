@@ -7,12 +7,12 @@
 	{
 		
 		public function employeeGet() {
-			$type 	= 'employee';
+
+			$type = 'employee';
 			return View::make('employee',array(
 				'expire'	=> '',
 				'msgNumber'	=> 0,
-				'type'		=> $type
-				));
+				'type' => $type
 		}
 
 		/*

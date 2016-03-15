@@ -14,13 +14,16 @@
 			// stock notification which is less than 5 
 			$expire 	= medicin::where('quantity','<=', 5)->get();
 			$msgNumber  = count($expire);
+			
 			$type 		= 'expire';
+
 			return View::make('stock',array(
 				'stocks'	=> $stocks,
 				'expire'	=> $expire,
 				'msgNumber'	=> $msgNumber,
 				'msg'		=> 'Less then five is remain in stock',
 				'type'		=> $type
+				
 				));
 		}
 

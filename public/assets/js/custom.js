@@ -529,7 +529,3 @@ $(document).ready(function(){
       });
     });
 
-
-     /*
-     | change style notofication 
-     */ 
