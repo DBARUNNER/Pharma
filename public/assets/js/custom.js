@@ -250,15 +250,15 @@ $(document).ready(function(){
 
 // show import material base on bill id 
 function seeImportMaterial(id){
-
 $(document).ready(function(){
-        
     $.post("setImportMaterial",
     {
        id:id
     },
     function(data,status){
+      
       document.getElementById('import-material-body').innerHTML = data;
+
     });
 });
 
@@ -294,7 +294,7 @@ $(document).ready(function(){
         $(document).ready(function(){
           $("li#listAgent").click(function(){
             $.get("listAgent",function(data,status){
-                document.getElementById('agent-table-body').innerHTML = data;
+             document.getElementById('agent-table-body').innerHTML = data;
             });
           });
         });
@@ -529,5 +529,3 @@ $(document).ready(function(){
       });
     });
 
-
-  

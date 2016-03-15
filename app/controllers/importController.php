@@ -90,7 +90,6 @@
 			$suplier_id = Input::get('suplier_id');
 			$date 	  = date("Y-m-d");
 			$bill_type = 'import';
-
 			if(count($material) < 1) {
 				return "Please fill the form first please!";
 			}else {
